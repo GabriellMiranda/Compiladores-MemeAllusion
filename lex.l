@@ -9,17 +9,17 @@
 
 delim [ \t\n]
 ws {delim}+
-
-typedef   "tipoIsso"
-continue  "toBeContinua"
-False "mentiraa"
-True  "realmente"
 digito [0-9]
 letra [a-zA-Z]
 positivo ((\+){digito}+)|{digito}+
 negativo (-){digito}+
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
 id {letra}({letra}|{digito})*
+
+typedef   "tipoIsso"
+continue  "toBeContinua"
+False "mentiraa"
+True  "realmente"
 printf "seliga"
 for "paraZe"
 while "uaiou"
@@ -31,12 +31,15 @@ goto "vai"
 return "lei3Newton"
 sizeof "tamanho"
 do "faz"
+true "realmente"
+false "mentiraa"
+
 
 /*regras*/
 %%
 {ws}             {/*nenhuma acao e nehum retorno*/}
-{False}          {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
-{True}           {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
+{false}          {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
+{true}           {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
 {continue}       {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
 {typedef}        {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
 {do}             {printf("Foi encontrado um 'do'. Lexema: %s\n",yytext);}
