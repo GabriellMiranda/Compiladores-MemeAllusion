@@ -14,9 +14,18 @@ letra [a-zA-Z]
 positivo ((\+){digito}+)|{digito}+
 negativo (-){digito}+
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
+sizeOf ["saizon"]{positivo}
+malloc ["alok"]{sizeOf}
 id {letra}({letra}|{digito})*
 ponteiro (_x9){letra}+
-multiplicacao ({positivo}|{negativo})("veis")({positivo}|{negativo})
+multiplicacao ({positivo}|{negativo})([\" veis "])({positivo}|{negativo})
+divisao ({positivo}|{negativo})(("Socialismo")({positivo}|{negativo}))*
+soma ({positivo}|{negativo})(["mais"]({positivo}|{negativo}))+
+subtracao ({positivo}|{negativo})(["menos"]({positivo}|{negativo}))+
+break ["parecomisso"]
+atribuicao {letra}+["receba"]({letra}+|{positivo}|{negativo}|{decimal})+
+maior ({positivo}|{negativo}|{decimal})"MaiorQue"({positivo}|{negativo}|{decimal})
+menor ({positivo}|{negativo}|{decimal})"MenorQue"({positivo}|{negativo}|{decimal})
 
 typedef   "tipoIsso"
 continue  "toBeContinua"
@@ -31,7 +40,6 @@ case "cazemito"
 switch "trocar"
 goto "vai"
 return "lei3Newton"
-sizeof "tamanho"
 do "faz"
 true "realmente"
 false "mentiraa"
@@ -71,10 +79,18 @@ false "mentiraa"
 {case}           {printf("Foi encontrado um case. Lexema: %s\n", yytext);}
 {switch}         {printf("Foi encontrado um switch. Lexema: %s\n", yytext);}
 {goto}           {printf("Foi encontrado um goto. Lexema: %s\n", yytext);}
-{sizeof}         {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
+{malloc}	 {printf("Foi encontrado um malloc. Lexema: %s\n", yytext);}
+{sizeOf}         {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
 {id}             {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
 {ponteiro} {printf("Foi encontrado um ponteiro. Lexema: %s\n", yytext);}
-{multiplicacao} {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
+{multiplicacao}  {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
+{soma} 		 {printf("Foi encontrado uma soma. Lexema: %s\n", yytext);}
+{subtracao} 	 {printf("Foi encontrado uma subtração. Lexema: %s\n", yytext);}
+{break}		 {printf("Foi encontrado um break. Lexema: %s\n", yytext);}
+
+{atribuicao} 	 {printf("Foi encontrado uma atribuição. Lexema: %s\n", yytext);}
+{positivo}	 {printf("Foi encontrado um inteiro positivo. Lexema: %s\n", yytext);}
+{negativo}	 {printf("Foi encontrado um inteiro negativo. Lexema: %s\n", yytext);}
 
 %%
 
