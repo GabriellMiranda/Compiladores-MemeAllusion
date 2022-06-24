@@ -1,0 +1,6 @@
+Thais var1
+Fabricio var2
+paraZe
+    var1 mais var2
+    parecomisso
+var1 receba var2

@@ -50,6 +50,8 @@ char "Nacif"
 struct "fusao"
 int "Daniel"
 scanf "leiame"
+sizeof "saizonof"
+
 
 /*regras*/
 %%
@@ -70,32 +72,32 @@ scanf "leiame"
 "ii"              {printf("Foi encontrado um sinal '&&'. Lexema: %s\n",yytext);}
 "ou"              {printf("Foi encontrado um sinal '||'. Lexema: %s\n",yytext);}
 
-{false}          {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
-{true}           {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
-{continue}       {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
-{typedef}        {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
-{do}             {printf("Foi encontrado um 'do'. Lexema: %s\n",yytext);}
-{return}         {printf("Foi encontrado um return. Lexema: %s\n",yytext);}
-{printf}         {printf("Foi encontrado um print. Lexema: %s\n", yytext);}
-{for}            {printf("Foi encontrado um for. Lexema: %s\n", yytext);}
-{while}          {printf("Foi encontrado um while. Lexema: %s\n", yytext);}
-{if}             {printf("Foi encontrado um if. Lexema: %s\n", yytext);}
-{else}           {printf("Foi encontrado um else. Lexema: %s\n", yytext);}
-{case}           {printf("Foi encontrado um case. Lexema: %s\n", yytext);}
-{switch}         {printf("Foi encontrado um switch. Lexema: %s\n", yytext);}
-{goto}           {printf("Foi encontrado um goto. Lexema: %s\n", yytext);}
-{malloc}	 {printf("Foi encontrado um malloc. Lexema: %s\n", yytext);}
-{sizeOf}         {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
-{id}             {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
-{ponteiro} {printf("Foi encontrado um ponteiro. Lexema: %s\n", yytext);}
-{multiplicacao}  {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
-{soma} 		 {printf("Foi encontrado uma soma. Lexema: %s\n", yytext);}
-{subtracao} 	 {printf("Foi encontrado uma subtração. Lexema: %s\n", yytext);}
-{break}		 {printf("Foi encontrado um break. Lexema: %s\n", yytext);}
+{false}           {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
+{true}            {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
+{continue}        {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
+{typedef}         {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
+{do}              {printf("Foi encontrado um 'do'. Lexema: %s\n",yytext);}
+{return}          {printf("Foi encontrado um return. Lexema: %s\n",yytext);}
+{printf}          {printf("Foi encontrado um print. Lexema: %s\n", yytext);}
+{for}             {printf("Foi encontrado um for. Lexema: %s\n", yytext);}
+{while}           {printf("Foi encontrado um while. Lexema: %s\n", yytext);}
+{if}              {printf("Foi encontrado um if. Lexema: %s\n", yytext);}
+{else}            {printf("Foi encontrado um else. Lexema: %s\n", yytext);}
+{case}            {printf("Foi encontrado um case. Lexema: %s\n", yytext);}
+{switch}          {printf("Foi encontrado um switch. Lexema: %s\n", yytext);}
+{goto}            {printf("Foi encontrado um goto. Lexema: %s\n", yytext);}
+{malloc}	        {printf("Foi encontrado um malloc. Lexema: %s\n", yytext);}
+{sizeOf}          {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
+{id}              {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
+{ponteiro}        {printf("Foi encontrado um ponteiro. Lexema: %s\n", yytext);}
+{multiplicacao}   {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
+{soma} 		        {printf("Foi encontrado uma soma. Lexema: %s\n", yytext);}
+{subtracao}   	  {printf("Foi encontrado uma subtração. Lexema: %s\n", yytext);}
+{break}		        {printf("Foi encontrado um break. Lexema: %s\n", yytext);}
 
-{atribuicao} 	 {printf("Foi encontrado uma atribuição. Lexema: %s\n", yytext);}
-{positivo}	 {printf("Foi encontrado um inteiro positivo. Lexema: %s\n", yytext);}
-{negativo}	 {printf("Foi encontrado um inteiro negativo. Lexema: %s\n", yytext);}
+{atribuicao} 	    {printf("Foi encontrado uma atribuição. Lexema: %s\n", yytext);}
+{positivo}	      {printf("Foi encontrado um inteiro positivo. Lexema: %s\n", yytext);}
+{negativo}	      {printf("Foi encontrado um inteiro negativo. Lexema: %s\n", yytext);}
 
 {scanf}          
 {false}           {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
