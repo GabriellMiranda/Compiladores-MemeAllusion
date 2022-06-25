@@ -6,7 +6,7 @@
 /* This tells flex to read only one input file */
 
 %option noyywrap
-
+%x comment
 
 delim [ \t]
 ws {delim}+
@@ -45,6 +45,9 @@ id {letra}({letra}|{digito})*
 /*regras*/
 %%
 \n                {linha++;}
+"//"              {BEGIN(comment);printf("Comentario ignorado:: ");}
+<comment>\n       {linha++;}
+<comment>"//"     {BEGIN(INITIAL);printf("\n");}
 {ws}              {/*nenhuma acao e nehum retorno*/}
 {int}             {printf("-> %s\n", yytext);}
 {float}           {printf("-> %s\n", yytext);}
