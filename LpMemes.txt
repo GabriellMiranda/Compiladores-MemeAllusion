@@ -1,4 +1,15 @@
-uaiou id2 MenorQue id2
-    id2 receba id1
-fusao Nacif Thais _x9var  123veis-9402 Fabricio
-seliga
+
+Daniel ilaVamosNos{
+    Thais valor1;
+    Daniel valor2;
+    valor1 receba -1;
+    valor2 receba 4;
+    uaiou (valor1 MenorQue valor2){
+        valor1 receba valor1 + 1;
+    }
+    seliga(valor1);
+    seliga(valor2);
+    mentiraa MaiorQue
+    lei3Newton 0;
+}
+

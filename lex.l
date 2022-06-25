@@ -10,27 +10,16 @@
 delim [ \t\n]
 ws {delim}+
 digito [0-9]
+numero {digito}+|([-]{digito}+)
 letra [a-zA-Z]
-positivo ((\+){digito}+)|{digito}+
-negativo (-){digito}+
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
-sizeOf ["saizon"]{positivo}
-malloc ["alok"]{sizeOf}
-id {letra}({letra}|{digito})*
 ponteiro (_x9){letra}+
-multiplicacao ({positivo}|{negativo})([\" veis "])({positivo}|{negativo})
-divisao ({positivo}|{negativo})(("Socialismo")({positivo}|{negativo}))*
-soma ({positivo}|{negativo})(["mais"]({positivo}|{negativo}))+
-subtracao ({positivo}|{negativo})(["menos"]({positivo}|{negativo}))+
 break ["parecomisso"]
-atribuicao {letra}+["receba"]({letra}+|{positivo}|{negativo}|{decimal})+
-maior ({positivo}|{negativo}|{decimal})"MaiorQue"({positivo}|{negativo}|{decimal})
-menor ({positivo}|{negativo}|{decimal})"MenorQue"({positivo}|{negativo}|{decimal})
-
+boolean ("realmente"|"mentiraa")
+operadores  \+|\-|\*|\/|\*\*
+operadoresLogic ("MenorQue"|"MaiorQue"|"gemeas"|"notIgual"|"MenorIgualQue"|"MaiorIgualQue"|"ii"|"ou")
 typedef   "tipoIsso"
 continue  "toBeContinua"
-False "mentiraa"
-True  "realmente"
 printf "seliga"
 for "paraZe"
 while "uaiou"
@@ -41,39 +30,33 @@ switch "trocar"
 goto "vai"
 return "lei3Newton"
 do "faz"
-true "realmente"
-false "mentiraa"
+
 
 float "Thais"
 double "Fabricio"
 char "Nacif"
 struct "fusao"
 int "Daniel"
-scanf "leiame"
 sizeof "saizonof"
-
+malloc "alok"
+id {letra}({letra}|{digito})*
 
 /*regras*/
 %%
 {ws}              {/*nenhuma acao e nehum retorno*/}
+
+{int}             {printf("Foi encontrado um tipo int. Lexema: %s\n", yytext);}
 {float}           {printf("Foi encontrado um tipo float. Lexema: %s\n",yytext);}
 {double}          {printf("Foi encontrado tipo double. Lexema: %s\n",yytext);}
 {char}            {printf("Foi encontrado um tipo char. Lexema: %s\n",yytext);}
 {struct}          {printf("Foi encontrado uma struct. Lexema: %s\n",yytext);}
+{boolean}         {printf("Foi ecnontrado um boolean. Lexema: %s\n", yytext);}
+{numero}          {printf("Foi encontrado um numero. Lexema: %s\n", yytext);}
 
 
-"receba"          {printf("Foi encontrado uma atribuicao '='. Lexema: %s\n",yytext);}
-"MenorQue"        {printf("Foi encontrado um sinal '<'. Lexema: %s\n",yytext);}
-"MaiorQue"        {printf("Foi encontrado um sinal '>'. Lexema: %s\n",yytext);}
-"gemeas"          {printf("Foi encontrado um sinal '=='. Lexema: %s\n",yytext);}
-"notIgual"        {printf("Foi encontrado um sinal '!='. Lexema: %s\n",yytext);}
-"MenorIgualQue"   {printf("Foi encontrado um sinal '<='. Lexema: %s\n",yytext);}
-"MaiorIgualQue"   {printf("Foi encontrado um sinal '>='. Lexema: %s\n",yytext);}
-"ii"              {printf("Foi encontrado um sinal '&&'. Lexema: %s\n",yytext);}
-"ou"              {printf("Foi encontrado um sinal '||'. Lexema: %s\n",yytext);}
+"leiame"          {printf("Foi encontrado um scanf. Lexema: %s\n", yytext);}
+"ilaVamosNos"     {printf("Foi encontrado a main. Lexema: %s\n", yytext);}
 
-{false}           {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
-{true}            {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
 {continue}        {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
 {typedef}         {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
 {do}              {printf("Foi encontrado um 'do'. Lexema: %s\n",yytext);}
@@ -87,38 +70,23 @@ sizeof "saizonof"
 {switch}          {printf("Foi encontrado um switch. Lexema: %s\n", yytext);}
 {goto}            {printf("Foi encontrado um goto. Lexema: %s\n", yytext);}
 {malloc}	        {printf("Foi encontrado um malloc. Lexema: %s\n", yytext);}
-{sizeOf}          {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
-{id}              {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
+{sizeof}          {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
 {ponteiro}        {printf("Foi encontrado um ponteiro. Lexema: %s\n", yytext);}
-{multiplicacao}   {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
-{soma} 		        {printf("Foi encontrado uma soma. Lexema: %s\n", yytext);}
-{subtracao}   	  {printf("Foi encontrado uma subtração. Lexema: %s\n", yytext);}
 {break}		        {printf("Foi encontrado um break. Lexema: %s\n", yytext);}
 
-{atribuicao} 	    {printf("Foi encontrado uma atribuição. Lexema: %s\n", yytext);}
-{positivo}	      {printf("Foi encontrado um inteiro positivo. Lexema: %s\n", yytext);}
-{negativo}	      {printf("Foi encontrado um inteiro negativo. Lexema: %s\n", yytext);}
 
-{scanf}          
-{false}           {printf("Foi encontrado um 'False'. Lexema: %s\n",yytext);}
-{true}            {printf("Foi encontrado um 'True'. Lexema: %s\n",yytext);}
-{continue}        {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
-{typedef}         {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
-{do}              {printf("Foi encontrado um 'do'. Lexema: %s\n",yytext);}
-{return}          {printf("Foi encontrado um return. Lexema: %s\n",yytext);}
-{printf}          {printf("Foi encontrado um print. Lexema: %s\n", yytext);}
-{for}             {printf("Foi encontrado um for. Lexema: %s\n", yytext);}
-{while}           {printf("Foi encontrado um while. Lexema: %s\n", yytext);}
-{if}              {printf("Foi encontrado um if. Lexema: %s\n", yytext);}
-{else}            {printf("Foi encontrado um else. Lexema: %s\n", yytext);}
-{case}            {printf("Foi encontrado um case. Lexema: %s\n", yytext);}
-{switch}          {printf("Foi encontrado um switch. Lexema: %s\n", yytext);}
-{goto}            {printf("Foi encontrado um goto. Lexema: %s\n", yytext);}
-{sizeof}          {printf("Foi encontrado um sizeof. Lexema: %s\n", yytext);}
+
+{operadores}      {printf("Foi encontrado um operador. Lexema: %s\n", yytext);}
+{operadoresLogic} {printf("Foi encontrado um operadoresLogicos. Lexema: %s\n", yytext);}
 {id}              {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
-{ponteiro}        {printf("Foi encontrado um ponteiro. Lexema: %s\n", yytext);}
-{multiplicacao}   {printf("Foi encontrado uma multiplicacao. Lexema: %s\n", yytext);}
-{scanf}           {printf("Foi encontrado um scanf. Lexema: %s\n", yytext);}
+\(                {printf("Foi encontrado um abreParentese. Lexema: %s\n", yytext);}  
+\)                {printf("Foi ecnontrado um fechaParentese. Lexema: %s\n", yytext);}
+\;                {printf("Foi encontrado um ponto e virgula. Lexema: %s\n", yytext);}
+\:                {printf("Foi encontrado um dois pontos. Lexema: %s\n", yytext);}
+\{                {printf("Foi encontrado um inicio de escopo. Lexema: %s\n", yytext);}
+\}                {printf("Foi encontrado um fim de escopo. Lexema: %s\n", yytext);}
+
+
 
 %%
 
