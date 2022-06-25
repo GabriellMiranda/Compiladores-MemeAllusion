@@ -1,4 +1,5 @@
 %{
+  int linha = 1;
   #include <stdio.h>
 %}
 
@@ -7,7 +8,7 @@
 %option noyywrap
 
 
-delim [ \t\n]
+delim [ \t]
 ws {delim}+
 digito [0-9]
 numero {digito}+|([-]{digito}+)
@@ -30,7 +31,7 @@ switch "trocar"
 goto "vai"
 return "lei3Newton"
 do "faz"
-
+erro [.]|[^]|[~]|[$]]
 
 float "Thais"
 double "Fabricio"
@@ -43,6 +44,7 @@ id {letra}({letra}|{digito})*
 
 /*regras*/
 %%
+\n                {linha++;}
 {ws}              {/*nenhuma acao e nehum retorno*/}
 
 {int}             {printf("Foi encontrado um tipo int. Lexema: %s\n", yytext);}
@@ -79,13 +81,13 @@ id {letra}({letra}|{digito})*
 {operadores}      {printf("Foi encontrado um operador. Lexema: %s\n", yytext);}
 {operadoresLogic} {printf("Foi encontrado um operadoresLogicos. Lexema: %s\n", yytext);}
 {id}              {printf("Foi encontrado um id. Lexema: %s\n", yytext);}
-\(                {printf("Foi encontrado um abreParentese. Lexema: %s\n", yytext);}  
+\(                {printf("Foi encontrado um abreParentese. Lexema: %s\n", yytext);}
 \)                {printf("Foi ecnontrado um fechaParentese. Lexema: %s\n", yytext);}
 \;                {printf("Foi encontrado um ponto e virgula. Lexema: %s\n", yytext);}
 \:                {printf("Foi encontrado um dois pontos. Lexema: %s\n", yytext);}
 \{                {printf("Foi encontrado um inicio de escopo. Lexema: %s\n", yytext);}
 \}                {printf("Foi encontrado um fim de escopo. Lexema: %s\n", yytext);}
-
+{erro}            {printf(":: Erro Léxico :: Linha -> %d Erro de lexema: %s\n",linha, yytext);}
 
 
 %%
