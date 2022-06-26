@@ -60,6 +60,7 @@ id {letra}({letra}|{digito})*
 
 "leiame"          {printf("-> %s\n", yytext);}
 "ilaVamosNos"     {printf("-> %s\n", yytext);}
+"receba"          {printf("-> %s\n", yytext);}
 
 {continue}        {printf("-> %s\n", yytext);}
 {typedef}         {printf("-> %s\n", yytext);}
@@ -89,6 +90,7 @@ id {letra}({letra}|{digito})*
 \:                {printf("-> %s\n", yytext);}
 \{                {printf("-> %s\n", yytext);}
 \}                {printf("-> %s\n", yytext);}
+\,                {printf("-> %s\n", yytext);}
 {erro}            {printf(":: Erro Léxico :: Linha -> %d Erro de lexema: %s\n",linha, yytext);}
 
 

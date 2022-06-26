@@ -61,6 +61,7 @@ id {letra}({letra}|{digito})*
 
 "leiame"          {printf("Foi encontrado um scanf. Lexema: %s\n", yytext);}
 "ilaVamosNos"     {printf("Foi encontrado a main. Lexema: %s\n", yytext);}
+"receba"          {printf("Foi encontrado um '='. Lexema: %s\n", yytext);}
 
 {continue}        {printf("Foi encontrado um 'continue'. Lexema: %s\n",yytext);}
 {typedef}         {printf("Foi encontrado um 'typedef'. Lexema: %s\n",yytext);}
@@ -90,6 +91,7 @@ id {letra}({letra}|{digito})*
 \:                {printf("Foi encontrado um dois pontos. Lexema: %s\n", yytext);}
 \{                {printf("Foi encontrado um inicio de escopo. Lexema: %s\n", yytext);}
 \}                {printf("Foi encontrado um fim de escopo. Lexema: %s\n", yytext);}
+\,                {printf("Foi encontrado uma virgula. Lexema: %s\n", yytext);}
 {erro}            {printf(":: Erro Léxico :: Linha -> %d Erro de lexema: %s\n",linha, yytext);}
 
 

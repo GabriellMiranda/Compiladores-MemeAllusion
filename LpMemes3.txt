@@ -1,0 +1,26 @@
+//leia quantos jogadores existem em um time de futebol//
+// e ache o menor jogador, o maior e a média das alturas//
+
+Daniel ilaVamosNos(){
+    Fabricio menor, maior, media, altura;
+    Daniel qtd;
+    leia qtd;
+    paraZe(Daniel i receba 0; i MenorQue qtd;i receba i + 1){
+        leia altura;
+        hipotese(i gemeas 0){
+            menor receba altura;
+            maior receba altura;
+        }
+        hipotese(maior MaiorQue altura){
+            maior receba altura;
+        }
+        hipotese(menor MenorQue altura){
+            menor receba altura;
+        }
+        media receba altura;
+    }
+    media receba media / qtd;
+    seliga(media);
+    seliga(maior);
+    seliga(menor);
+}

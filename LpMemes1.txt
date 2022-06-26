@@ -1,0 +1,12 @@
+// Faça um programa que some os valores de 1 ate 10 usando o comando paraZe.//
+
+Daniel ilaVamosNos(){ // iniciando o código //
+    Daniel valor1;   
+    valor1 receba 0;
+    paraZe(Daniel i receba 0; i MenorQue 0; i = i + 1){ //indo de 0 a 9 //
+        valor1 receba valor1 + (i+1); // somando os valores de 1 a 10 //
+    }
+    seliga(valor1);  //mostrando o resultado//
+    lei3Newton 0;
+}
+
