@@ -10,10 +10,10 @@ Daniel ilaVamosNos(){
             maior receba vet(i);
             menor receba vet(i);
         }
-        hipotese(maior MaiorQue vet(i)){
+        hipotese(maior MenorQue vet(i)){
             maior receba vet(i);
         }
-        hipotese(menor MenorQue vet(i)){
+        hipotese(menor MaiorQue vet(i)){
             menor receba vet(i);
         }
     }

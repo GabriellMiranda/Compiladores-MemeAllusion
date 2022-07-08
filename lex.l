@@ -31,7 +31,7 @@ switch "trocar"
 goto "vai"
 return "lei3Newton"
 do "faz"
-erro [.]|[^]|[~]|[$]]
+erro [.]|[^]|[~]|[$]
 
 float "Thais"
 double "Fabricio"

@@ -11,10 +11,10 @@ Daniel ilaVamosNos(){
             menor receba altura;
             maior receba altura;
         }
-        hipotese(maior MaiorQue altura){
+        hipotese(maior MenorQue altura){
             maior receba altura;
         }
-        hipotese(menor MenorQue altura){
+        hipotese(menor MaiorQue altura){
             menor receba altura;
         }
         media receba altura;
