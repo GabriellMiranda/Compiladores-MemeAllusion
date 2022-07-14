@@ -1,0 +1,11 @@
+Daniel ilaVamosNos(){
+    Daniel n, i, fib1 receba 1, fib2 receba 1, soma;
+    leiame("%d", n);
+    paraZe(Daniel i receba 3; i MenorIgualQue n; i receba i + 1){
+        soma receba fib1 + fib2;
+        fib1 receba fib2;
+        fib2 receba soma;
+    }
+    seliga("%d",fib2);
+    leiNewton 0;
+}

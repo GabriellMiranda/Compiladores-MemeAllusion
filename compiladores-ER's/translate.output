@@ -1,0 +1,819 @@
+Terminals unused in grammar
+
+   STRUCT
+   LETRA
+   DECIMAL
+   NEGATIVO
+   POSITIVO
+   CONTINUE
+   TYPEDEF
+   PRINTF
+   FOR
+   WHILE
+   CASE
+   SWITCH
+   GOTO
+   MALLOC
+   SIZEOF
+   PONTEIRO
+   BREAK
+   LEIAME
+   DO
+
+
+State 22 conflicts: 6 shift/reduce
+State 27 conflicts: 1 shift/reduce
+State 59 conflicts: 5 shift/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: main '(' ')' '{' body return '}'
+
+    2 main: INT ILAVAMOSNOS
+
+    3 declaration: datatype ID RECEBA value ';'
+    4            | datatype ID ';'
+
+    5 value: NUMERO
+    6      | STR
+
+    7 body: body body
+    8     | stmt
+    9     | IF '(' condition ')' '{' body '}' else
+
+   10 condition: value operador value
+   11          | TRUE
+   12          | FALSE
+
+   13 else: ELSE '{' body '}'
+   14     | /* empty */
+
+   15 operador: OU
+   16         | II
+   17         | MAIORIGUALQUE
+   18         | MENORIGUALQUE
+   19         | NOTIGUAL
+   20         | GEMEAS
+   21         | MAIORQUE
+   22         | MENORQUE
+
+   23 stmt: declaration
+   24     | ID RECEBA value ';'
+   25     | ID RECEBA expr ';'
+
+   26 expr: expr aritmetica expr
+   27     | value
+
+   28 aritmetica: PLUS
+   29           | MINUS
+   30           | MULT
+   31           | DIV
+   32           | EXP
+
+   33 datatype: INT
+   34         | FLOAT
+   35         | CHAR
+   36         | DOUBLE
+
+   37 return: RETURN value ';'
+   38       | RETURN ';'
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'(' (40) 1 9
+')' (41) 1 9
+';' (59) 3 4 24 25 37 38
+'{' (123) 1 9 13
+'}' (125) 1 9 13
+error (256)
+INT (258) 2 33
+FLOAT (259) 34
+DOUBLE (260) 36
+CHAR (261) 35
+STRUCT (262)
+FALSE (263) 12
+TRUE (264) 11
+LETRA (265)
+DECIMAL (266)
+NEGATIVO (267)
+POSITIVO (268)
+ID (269) 3 4 24 25
+ILAVAMOSNOS (270) 2
+RECEBA (271) 3 24 25
+MENORQUE (272) 22
+MAIORQUE (273) 21
+GEMEAS (274) 20
+NOTIGUAL (275) 19
+MENORIGUALQUE (276) 18
+MAIORIGUALQUE (277) 17
+II (278) 16
+OU (279) 15
+CONTINUE (280)
+TYPEDEF (281)
+RETURN (282) 37 38
+PRINTF (283)
+FOR (284)
+WHILE (285)
+IF (286) 9
+ELSE (287) 13
+CASE (288)
+SWITCH (289)
+GOTO (290)
+MALLOC (291)
+SIZEOF (292)
+PONTEIRO (293)
+BREAK (294)
+STR (295) 6
+LEIAME (296)
+NUMERO (297) 5
+PLUS (298) 28
+MINUS (299) 29
+DIV (300) 31
+MULT (301) 30
+EXP (302) 32
+DO (303)
+
+
+Nonterminals, with rules where they appear
+
+$accept (54)
+    on left: 0
+program (55)
+    on left: 1, on right: 0
+main (56)
+    on left: 2, on right: 1
+declaration (57)
+    on left: 3 4, on right: 23
+value (58)
+    on left: 5 6, on right: 3 10 24 27 37
+body (59)
+    on left: 7 8 9, on right: 1 7 9 13
+condition (60)
+    on left: 10 11 12, on right: 9
+else (61)
+    on left: 13 14, on right: 9
+operador (62)
+    on left: 15 16 17 18 19 20 21 22, on right: 10
+stmt (63)
+    on left: 23 24 25, on right: 8
+expr (64)
+    on left: 26 27, on right: 25 26
+aritmetica (65)
+    on left: 28 29 30 31 32, on right: 26
+datatype (66)
+    on left: 33 34 35 36, on right: 3 4
+return (67)
+    on left: 37 38, on right: 1
+
+
+State 0
+
+    0 $accept: . program $end
+
+    INT  shift, and go to state 1
+
+    program  go to state 2
+    main     go to state 3
+
+
+State 1
+
+    2 main: INT . ILAVAMOSNOS
+
+    ILAVAMOSNOS  shift, and go to state 4
+
+
+State 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 5
+
+
+State 3
+
+    1 program: main . '(' ')' '{' body return '}'
+
+    '('  shift, and go to state 6
+
+
+State 4
+
+    2 main: INT ILAVAMOSNOS .
+
+    $default  reduce using rule 2 (main)
+
+
+State 5
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+State 6
+
+    1 program: main '(' . ')' '{' body return '}'
+
+    ')'  shift, and go to state 7
+
+
+State 7
+
+    1 program: main '(' ')' . '{' body return '}'
+
+    '{'  shift, and go to state 8
+
+
+State 8
+
+    1 program: main '(' ')' '{' . body return '}'
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+
+    declaration  go to state 15
+    body         go to state 16
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 9
+
+   33 datatype: INT .
+
+    $default  reduce using rule 33 (datatype)
+
+
+State 10
+
+   34 datatype: FLOAT .
+
+    $default  reduce using rule 34 (datatype)
+
+
+State 11
+
+   36 datatype: DOUBLE .
+
+    $default  reduce using rule 36 (datatype)
+
+
+State 12
+
+   35 datatype: CHAR .
+
+    $default  reduce using rule 35 (datatype)
+
+
+State 13
+
+   24 stmt: ID . RECEBA value ';'
+   25     | ID . RECEBA expr ';'
+
+    RECEBA  shift, and go to state 19
+
+
+State 14
+
+    9 body: IF . '(' condition ')' '{' body '}' else
+
+    '('  shift, and go to state 20
+
+
+State 15
+
+   23 stmt: declaration .
+
+    $default  reduce using rule 23 (stmt)
+
+
+State 16
+
+    1 program: main '(' ')' '{' body . return '}'
+    7 body: body . body
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    RETURN  shift, and go to state 21
+    IF      shift, and go to state 14
+
+    declaration  go to state 15
+    body         go to state 22
+    stmt         go to state 17
+    datatype     go to state 18
+    return       go to state 23
+
+
+State 17
+
+    8 body: stmt .
+
+    $default  reduce using rule 8 (body)
+
+
+State 18
+
+    3 declaration: datatype . ID RECEBA value ';'
+    4            | datatype . ID ';'
+
+    ID  shift, and go to state 24
+
+
+State 19
+
+   24 stmt: ID RECEBA . value ';'
+   25     | ID RECEBA . expr ';'
+
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+
+    value  go to state 27
+    expr   go to state 28
+
+
+State 20
+
+    9 body: IF '(' . condition ')' '{' body '}' else
+
+    FALSE   shift, and go to state 29
+    TRUE    shift, and go to state 30
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+
+    value      go to state 31
+    condition  go to state 32
+
+
+State 21
+
+   37 return: RETURN . value ';'
+   38       | RETURN . ';'
+
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+    ';'     shift, and go to state 33
+
+    value  go to state 34
+
+
+State 22
+
+    7 body: body . body
+    7     | body body .
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+
+    INT       [reduce using rule 7 (body)]
+    FLOAT     [reduce using rule 7 (body)]
+    DOUBLE    [reduce using rule 7 (body)]
+    CHAR      [reduce using rule 7 (body)]
+    ID        [reduce using rule 7 (body)]
+    IF        [reduce using rule 7 (body)]
+    $default  reduce using rule 7 (body)
+
+    declaration  go to state 15
+    body         go to state 22
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 23
+
+    1 program: main '(' ')' '{' body return . '}'
+
+    '}'  shift, and go to state 35
+
+
+State 24
+
+    3 declaration: datatype ID . RECEBA value ';'
+    4            | datatype ID . ';'
+
+    RECEBA  shift, and go to state 36
+    ';'     shift, and go to state 37
+
+
+State 25
+
+    6 value: STR .
+
+    $default  reduce using rule 6 (value)
+
+
+State 26
+
+    5 value: NUMERO .
+
+    $default  reduce using rule 5 (value)
+
+
+State 27
+
+   24 stmt: ID RECEBA value . ';'
+   27 expr: value .
+
+    ';'  shift, and go to state 38
+
+    ';'       [reduce using rule 27 (expr)]
+    $default  reduce using rule 27 (expr)
+
+
+State 28
+
+   25 stmt: ID RECEBA expr . ';'
+   26 expr: expr . aritmetica expr
+
+    PLUS   shift, and go to state 39
+    MINUS  shift, and go to state 40
+    DIV    shift, and go to state 41
+    MULT   shift, and go to state 42
+    EXP    shift, and go to state 43
+    ';'    shift, and go to state 44
+
+    aritmetica  go to state 45
+
+
+State 29
+
+   12 condition: FALSE .
+
+    $default  reduce using rule 12 (condition)
+
+
+State 30
+
+   11 condition: TRUE .
+
+    $default  reduce using rule 11 (condition)
+
+
+State 31
+
+   10 condition: value . operador value
+
+    MENORQUE       shift, and go to state 46
+    MAIORQUE       shift, and go to state 47
+    GEMEAS         shift, and go to state 48
+    NOTIGUAL       shift, and go to state 49
+    MENORIGUALQUE  shift, and go to state 50
+    MAIORIGUALQUE  shift, and go to state 51
+    II             shift, and go to state 52
+    OU             shift, and go to state 53
+
+    operador  go to state 54
+
+
+State 32
+
+    9 body: IF '(' condition . ')' '{' body '}' else
+
+    ')'  shift, and go to state 55
+
+
+State 33
+
+   38 return: RETURN ';' .
+
+    $default  reduce using rule 38 (return)
+
+
+State 34
+
+   37 return: RETURN value . ';'
+
+    ';'  shift, and go to state 56
+
+
+State 35
+
+    1 program: main '(' ')' '{' body return '}' .
+
+    $default  reduce using rule 1 (program)
+
+
+State 36
+
+    3 declaration: datatype ID RECEBA . value ';'
+
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+
+    value  go to state 57
+
+
+State 37
+
+    4 declaration: datatype ID ';' .
+
+    $default  reduce using rule 4 (declaration)
+
+
+State 38
+
+   24 stmt: ID RECEBA value ';' .
+
+    $default  reduce using rule 24 (stmt)
+
+
+State 39
+
+   28 aritmetica: PLUS .
+
+    $default  reduce using rule 28 (aritmetica)
+
+
+State 40
+
+   29 aritmetica: MINUS .
+
+    $default  reduce using rule 29 (aritmetica)
+
+
+State 41
+
+   31 aritmetica: DIV .
+
+    $default  reduce using rule 31 (aritmetica)
+
+
+State 42
+
+   30 aritmetica: MULT .
+
+    $default  reduce using rule 30 (aritmetica)
+
+
+State 43
+
+   32 aritmetica: EXP .
+
+    $default  reduce using rule 32 (aritmetica)
+
+
+State 44
+
+   25 stmt: ID RECEBA expr ';' .
+
+    $default  reduce using rule 25 (stmt)
+
+
+State 45
+
+   26 expr: expr aritmetica . expr
+
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+
+    value  go to state 58
+    expr   go to state 59
+
+
+State 46
+
+   22 operador: MENORQUE .
+
+    $default  reduce using rule 22 (operador)
+
+
+State 47
+
+   21 operador: MAIORQUE .
+
+    $default  reduce using rule 21 (operador)
+
+
+State 48
+
+   20 operador: GEMEAS .
+
+    $default  reduce using rule 20 (operador)
+
+
+State 49
+
+   19 operador: NOTIGUAL .
+
+    $default  reduce using rule 19 (operador)
+
+
+State 50
+
+   18 operador: MENORIGUALQUE .
+
+    $default  reduce using rule 18 (operador)
+
+
+State 51
+
+   17 operador: MAIORIGUALQUE .
+
+    $default  reduce using rule 17 (operador)
+
+
+State 52
+
+   16 operador: II .
+
+    $default  reduce using rule 16 (operador)
+
+
+State 53
+
+   15 operador: OU .
+
+    $default  reduce using rule 15 (operador)
+
+
+State 54
+
+   10 condition: value operador . value
+
+    STR     shift, and go to state 25
+    NUMERO  shift, and go to state 26
+
+    value  go to state 60
+
+
+State 55
+
+    9 body: IF '(' condition ')' . '{' body '}' else
+
+    '{'  shift, and go to state 61
+
+
+State 56
+
+   37 return: RETURN value ';' .
+
+    $default  reduce using rule 37 (return)
+
+
+State 57
+
+    3 declaration: datatype ID RECEBA value . ';'
+
+    ';'  shift, and go to state 62
+
+
+State 58
+
+   27 expr: value .
+
+    $default  reduce using rule 27 (expr)
+
+
+State 59
+
+   26 expr: expr . aritmetica expr
+   26     | expr aritmetica expr .
+
+    PLUS   shift, and go to state 39
+    MINUS  shift, and go to state 40
+    DIV    shift, and go to state 41
+    MULT   shift, and go to state 42
+    EXP    shift, and go to state 43
+
+    PLUS      [reduce using rule 26 (expr)]
+    MINUS     [reduce using rule 26 (expr)]
+    DIV       [reduce using rule 26 (expr)]
+    MULT      [reduce using rule 26 (expr)]
+    EXP       [reduce using rule 26 (expr)]
+    $default  reduce using rule 26 (expr)
+
+    aritmetica  go to state 45
+
+
+State 60
+
+   10 condition: value operador value .
+
+    $default  reduce using rule 10 (condition)
+
+
+State 61
+
+    9 body: IF '(' condition ')' '{' . body '}' else
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+
+    declaration  go to state 15
+    body         go to state 63
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 62
+
+    3 declaration: datatype ID RECEBA value ';' .
+
+    $default  reduce using rule 3 (declaration)
+
+
+State 63
+
+    7 body: body . body
+    9     | IF '(' condition ')' '{' body . '}' else
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+    '}'     shift, and go to state 64
+
+    declaration  go to state 15
+    body         go to state 22
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 64
+
+    9 body: IF '(' condition ')' '{' body '}' . else
+
+    ELSE  shift, and go to state 65
+
+    $default  reduce using rule 14 (else)
+
+    else  go to state 66
+
+
+State 65
+
+   13 else: ELSE . '{' body '}'
+
+    '{'  shift, and go to state 67
+
+
+State 66
+
+    9 body: IF '(' condition ')' '{' body '}' else .
+
+    $default  reduce using rule 9 (body)
+
+
+State 67
+
+   13 else: ELSE '{' . body '}'
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+
+    declaration  go to state 15
+    body         go to state 68
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 68
+
+    7 body: body . body
+   13 else: ELSE '{' body . '}'
+
+    INT     shift, and go to state 9
+    FLOAT   shift, and go to state 10
+    DOUBLE  shift, and go to state 11
+    CHAR    shift, and go to state 12
+    ID      shift, and go to state 13
+    IF      shift, and go to state 14
+    '}'     shift, and go to state 69
+
+    declaration  go to state 15
+    body         go to state 22
+    stmt         go to state 17
+    datatype     go to state 18
+
+
+State 69
+
+   13 else: ELSE '{' body '}' .
+
+    $default  reduce using rule 13 (else)
