@@ -128,6 +128,8 @@ list_ids:
 | identificador RECEBA const
 ;
 
+
+
 const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
 
 expression: expression aritmetica expression
@@ -156,7 +158,7 @@ value: const
 | string
 ;
 
-string: STR {adcSimb(&tabela, "STRING", yytext, yylineno, "VETOR_CHAR");}
+string: STR {adcSimb(&tabela, "STRING", yytext, yylineno, "VETOR");}
 
 return: RETURN value ';' 
 | RETURN ';'
@@ -172,6 +174,7 @@ break: BREAK ';'
 
 void yyerror(char *s) {
     printf("\n\nErro sintático próximo à linha %d\n", yylineno);
+    printf("Possivel erro sintatico antes ou depois do termo --> %s \n", yytext);
     qtdErros++;
 }
 

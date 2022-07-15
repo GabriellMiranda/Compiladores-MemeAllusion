@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Thu Jul 14 20:39:37 2022
+# Make data base, printed on Fri Jul 15 19:38:18 2022
 
 # Variables
 
@@ -21,6 +20,8 @@ GNOME_SHELL_SESSION_MODE = ubuntu
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
+# environment
+GJS_DEBUG_OUTPUT = stderr
 # environment
 VSCODE_CWD = /home/gabriel
 # environment
@@ -40,7 +41,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's
+PWD = /home/gabriel/Documentos/Compiladores/TP/Compiladores-Tp1
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -61,10 +62,8 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # makefile
 MAKEFLAGS = pqrR
-# environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=ca0b3daa464a4e01fbc6e88a62d029bf
 # makefile
-CURDIR := /home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's
+CURDIR := /home/gabriel/Documentos/Compiladores/TP/Compiladores-Tp1
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
@@ -90,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 73061
+VSCODE_PID = 160855
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -104,7 +103,7 @@ SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/1942,unix/gabriel:/tmp/.ICE-unix
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=ca0b3daa464a4e01fbc6e88a62d029bf
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -119,6 +118,8 @@ SHELL = /bin/sh
 MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 SHLVL = 0
 # environment
@@ -140,7 +141,7 @@ SNAP_USER_COMMON = /home/gabriel/snap/code/common
 # environment
 SNAP = /snap/code/101
 # environment
-INVOCATION_ID = 6a70f72bf3d0485fa4b1a4dff28da712
+INVOCATION_ID = 7015ef764fe6450c9471f5cf0f295427
 # environment
 SNAP_REVISION = 101
 # environment
@@ -172,7 +173,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1942
+SYSTEMD_EXEC_PID = 2001
 # environment
 DISPLAY = :1
 # environment
@@ -190,9 +191,7 @@ SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
 MANAGERPID = 1632
 # environment
-DBUS_STARTER_BUS_TYPE = session
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 73015
+GIO_LAUNCHED_DESKTOP_FILE_PID = 160803
 # environment
 _ = /snap/code/101/usr/share/code/code
 # environment
@@ -202,7 +201,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/gabriel/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:36907
+JOURNAL_STREAM = 8:36032
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -244,7 +243,7 @@ GDMSESSION = ubuntu
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=116/1024=11%, Rehash=0, Collisions=4/149=3%
+# Load=116/1024=11%, Rehash=0, Collisions=3/149=2%
 
 # Pattern-specific Variable Values
 
@@ -252,9 +251,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 7998612): 25 files, no impossibilities.
+# . (device 66308, inode 6947294): 24 files, no impossibilities.
 
-# 25 files, no impossibilities in 1 directories.
+# 24 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -265,7 +264,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 20:39:22.890603506
+#  Last modified 2022-07-15 19:38:14.67630089
 #  File has been updated.
 #  Successfully updated.
 
@@ -300,6 +299,7 @@ all:
 # automatic
 # % := 
 # automatic
+ 
 # ^ := 
 # automatic
 # ? := 
@@ -340,13 +340,12 @@ instalarLex:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 349 B / avg = 10 B
-# current buf: size = 8162 B / used = 349 B / count = 33 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 32 / storage = 322 B / avg = 10 B
+# current buf: size = 8162 B / used = 322 B / count = 32 / avg = 10 B
 
-# strcache performance: lookups = 43 / hit rate = 23%
- 
+# strcache performance: lookups = 42 / hit rate = 23%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=0/43=0%
-# Finished Make data base on Thu Jul 14 20:39:37 2022
+# Load=32/8192=0%, Rehash=0, Collisions=0/42=0%
+# Finished Make data base on Fri Jul 15 19:38:18 2022
 
  

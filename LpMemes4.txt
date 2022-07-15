@@ -20,3 +20,4 @@ Daniel ilaVamosNos(){
     seliga("%d",maior);
     leiNewton 0;
 }
+
