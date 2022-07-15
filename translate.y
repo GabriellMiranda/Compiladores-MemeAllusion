@@ -172,6 +172,7 @@ break: BREAK ';'
 
 void yyerror(char *s) {
     printf("\n\nErro sintático próximo à linha %d\n", yylineno);
+    qtdErros++;
 }
 
 int main(void){
