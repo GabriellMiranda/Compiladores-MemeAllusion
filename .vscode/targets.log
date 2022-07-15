@@ -1,14 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Jul 14 20:19:15 2022
+# Make data base, printed on Thu Jul 14 20:39:37 2022
 
 # Variables
 
@@ -22,8 +21,6 @@ GNOME_SHELL_SESSION_MODE = ubuntu
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # environment
 VSCODE_CWD = /home/gabriel
 # environment
@@ -43,7 +40,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/gabriel/Documentos/Compiladores/Compiladores-Tp1
+PWD = /home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -64,8 +61,10 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # makefile
 MAKEFLAGS = pqrR
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=ca0b3daa464a4e01fbc6e88a62d029bf
 # makefile
-CURDIR := /home/gabriel/Documentos/Compiladores/Compiladores-Tp1
+CURDIR := /home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
@@ -84,14 +83,14 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 +D = $(patsubst %/,%,$(dir $+))
 # environment
 XDG_SESSION_DESKTOP = ubuntu
-# makefile
-MAKEFILE_LIST := 
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
 # environment
 SNAP_REEXEC = 
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 72392
+VSCODE_PID = 73061
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -105,7 +104,7 @@ SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/1942,unix/gabriel:/tmp/.ICE-unix
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=ca0b3daa464a4e01fbc6e88a62d029bf
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -120,8 +119,6 @@ SHELL = /bin/sh
 MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 SHLVL = 0
 # environment
@@ -143,7 +140,7 @@ SNAP_USER_COMMON = /home/gabriel/snap/code/common
 # environment
 SNAP = /snap/code/101
 # environment
-INVOCATION_ID = 7015ef764fe6450c9471f5cf0f295427
+INVOCATION_ID = 6a70f72bf3d0485fa4b1a4dff28da712
 # environment
 SNAP_REVISION = 101
 # environment
@@ -173,9 +170,9 @@ GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.deskto
 # environment
 SNAP_ARCH = amd64
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2001
+SYSTEMD_EXEC_PID = 1942
 # environment
 DISPLAY = :1
 # environment
@@ -193,7 +190,9 @@ SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
 MANAGERPID = 1632
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 72343
+DBUS_STARTER_BUS_TYPE = session
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 73015
 # environment
 _ = /snap/code/101/usr/share/code/code
 # environment
@@ -203,7 +202,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/gabriel/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:36032
+JOURNAL_STREAM = 8:36907
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -245,7 +244,7 @@ GDMSESSION = ubuntu
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=116/1024=11%, Rehash=0, Collisions=3/143=2%
+# Load=116/1024=11%, Rehash=0, Collisions=4/149=3%
 
 # Pattern-specific Variable Values
 
@@ -253,9 +252,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 5772857): 23 files, no impossibilities.
+# . (device 66308, inode 7998612): 25 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -266,9 +265,16 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-14 20:39:22.890603506
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+
+instalarYacc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 10):
+	sudo apt-get install bison
 
 # Not a target:
 .DEFAULT:
@@ -276,42 +282,71 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
 all:
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 2):
+	flex lex.l
+	yacc -d translate.y
+	gcc -o a.out lex.yy.c y.tab.c
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 6):
+	./a.out  <  ${file}
+
+instalarLex:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 8):
+	sudo apt-get install flex
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-
-# Not a target:
-GNUmakefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-
 # files hash-table stats:
- 
-# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=7/1024=1%, Rehash=0, Collisions=0/19=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 327 B / avg = 10 B
-# current buf: size = 8162 B / used = 327 B / count = 31 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 349 B / avg = 10 B
+# current buf: size = 8162 B / used = 349 B / count = 33 / avg = 10 B
 
-# strcache performance: lookups = 34 / hit rate = 8%
+# strcache performance: lookups = 43 / hit rate = 23%
+ 
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Thu Jul 14 20:19:15 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/43=0%
+# Finished Make data base on Thu Jul 14 20:39:37 2022
 
  

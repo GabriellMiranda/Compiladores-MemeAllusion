@@ -1,7 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's'
-flex lex.l
-yacc -d translate.y
-gcc -o a.out lex.yy.c y.tab.c
-make: Leaving directory '/home/gabriel/Documentos/Compiladores/Compiladores-Tp1/compiladores-ER's'
- 

@@ -83,13 +83,15 @@
     int yylex();
     int yywrap();
 
+    int qtdErros = 0; 
+
     char tipoSimbolo[100];
     char tipo[100];
     int linha;
 
     ArvorePatricia *tabela;
 
-#line 93 "y.tab.c"
+#line 95 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -715,12 +717,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    78,    78,    82,    85,    86,    87,    88,    91,    92,
-      93,    94,    95,    96,    97,    98,    99,   102,   103,   106,
-     107,   108,   111,   112,   113,   114,   117,   118,   121,   122,
-     123,   124,   125,   126,   127,   131,   132,   135,   136,   137,
-     138,   139,   142,   143,   144,   145,   146,   147,   148,   149,
-     152,   153,   154,   157,   158,   161,   165
+       0,    80,    80,    84,    87,    88,    89,    90,    93,    94,
+      95,    96,    97,    98,    99,   100,   101,   104,   105,   108,
+     109,   110,   113,   114,   115,   116,   119,   120,   123,   124,
+     125,   126,   127,   128,   129,   133,   134,   137,   138,   139,
+     140,   141,   144,   145,   146,   147,   148,   149,   150,   151,
+     154,   155,   156,   159,   160,   163,   167
 };
 #endif
 
@@ -1373,133 +1375,133 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: main '(' ')' '{' body return '}'  */
-#line 78 "translate.y"
+#line 80 "translate.y"
                                            {}
-#line 1379 "y.tab.c"
+#line 1381 "y.tab.c"
     break;
 
   case 4: /* datatype: INT  */
-#line 85 "translate.y"
+#line 87 "translate.y"
               {strcpy(tipo, "INT");}
-#line 1385 "y.tab.c"
+#line 1387 "y.tab.c"
     break;
 
   case 5: /* datatype: FLOAT  */
-#line 86 "translate.y"
+#line 88 "translate.y"
         {strcpy(tipo, "FLOAT");}
-#line 1391 "y.tab.c"
+#line 1393 "y.tab.c"
     break;
 
   case 6: /* datatype: CHAR  */
-#line 87 "translate.y"
+#line 89 "translate.y"
        {strcpy(tipo, "CHAR");}
-#line 1397 "y.tab.c"
+#line 1399 "y.tab.c"
     break;
 
   case 7: /* datatype: DOUBLE  */
-#line 88 "translate.y"
+#line 90 "translate.y"
          {strcpy(tipo, "DOUBLE");}
-#line 1403 "y.tab.c"
+#line 1405 "y.tab.c"
     break;
 
   case 37: /* aritmetica: PLUS  */
-#line 135 "translate.y"
+#line 137 "translate.y"
                  {}
-#line 1409 "y.tab.c"
+#line 1411 "y.tab.c"
     break;
 
   case 38: /* aritmetica: MINUS  */
-#line 136 "translate.y"
+#line 138 "translate.y"
         {}
-#line 1415 "y.tab.c"
+#line 1417 "y.tab.c"
     break;
 
   case 39: /* aritmetica: MULT  */
-#line 137 "translate.y"
+#line 139 "translate.y"
        {}
-#line 1421 "y.tab.c"
+#line 1423 "y.tab.c"
     break;
 
   case 40: /* aritmetica: DIV  */
-#line 138 "translate.y"
+#line 140 "translate.y"
       {}
-#line 1427 "y.tab.c"
+#line 1429 "y.tab.c"
     break;
 
   case 41: /* aritmetica: EXP  */
-#line 139 "translate.y"
+#line 141 "translate.y"
       {}
-#line 1433 "y.tab.c"
+#line 1435 "y.tab.c"
     break;
 
   case 42: /* relop: OU  */
-#line 142 "translate.y"
+#line 144 "translate.y"
           {}
-#line 1439 "y.tab.c"
+#line 1441 "y.tab.c"
     break;
 
   case 43: /* relop: II  */
-#line 143 "translate.y"
+#line 145 "translate.y"
      {}
-#line 1445 "y.tab.c"
+#line 1447 "y.tab.c"
     break;
 
   case 44: /* relop: MAIORIGUALQUE  */
-#line 144 "translate.y"
+#line 146 "translate.y"
                 {}
-#line 1451 "y.tab.c"
+#line 1453 "y.tab.c"
     break;
 
   case 45: /* relop: MENORIGUALQUE  */
-#line 145 "translate.y"
+#line 147 "translate.y"
                 {}
-#line 1457 "y.tab.c"
+#line 1459 "y.tab.c"
     break;
 
   case 46: /* relop: NOTIGUAL  */
-#line 146 "translate.y"
+#line 148 "translate.y"
            {}
-#line 1463 "y.tab.c"
+#line 1465 "y.tab.c"
     break;
 
   case 47: /* relop: GEMEAS  */
-#line 147 "translate.y"
+#line 149 "translate.y"
          {}
-#line 1469 "y.tab.c"
+#line 1471 "y.tab.c"
     break;
 
   case 48: /* relop: MAIORQUE  */
-#line 148 "translate.y"
+#line 150 "translate.y"
            {}
-#line 1475 "y.tab.c"
+#line 1477 "y.tab.c"
     break;
 
   case 49: /* relop: MENORQUE  */
-#line 149 "translate.y"
+#line 151 "translate.y"
            {}
-#line 1481 "y.tab.c"
+#line 1483 "y.tab.c"
     break;
 
   case 50: /* value: NUMERO  */
-#line 152 "translate.y"
+#line 154 "translate.y"
               {strcpy(tipo, "CONSTANTE");}
-#line 1487 "y.tab.c"
+#line 1489 "y.tab.c"
     break;
 
   case 52: /* value: STR  */
-#line 154 "translate.y"
+#line 156 "translate.y"
       {strcpy(tipo, "STRING");}
-#line 1493 "y.tab.c"
+#line 1495 "y.tab.c"
     break;
 
   case 55: /* identificador: ID  */
-#line 161 "translate.y"
+#line 163 "translate.y"
                   { strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
-#line 1499 "y.tab.c"
+#line 1501 "y.tab.c"
     break;
 
 
-#line 1503 "y.tab.c"
+#line 1505 "y.tab.c"
 
       default: break;
     }
@@ -1692,7 +1694,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 167 "translate.y"
+#line 169 "translate.y"
 
 
 
@@ -1706,7 +1708,10 @@ int main(void){
     printf("%d\t", yylineno);
     yyparse();
     printf("\n");
-    imprimirTab(tabela);
+    if(qtdErros == 0){
+        printf("\n\nPrograma Sintaticamente Correto\n");
+        imprimirTab(tabela);
+    }
     return 0;
 }
 

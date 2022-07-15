@@ -13,6 +13,8 @@
     int yylex();
     int yywrap();
 
+    int qtdErros = 0; 
+
     char tipoSimbolo[100];
     char tipo[100];
     int linha;
@@ -177,7 +179,10 @@ int main(void){
     printf("%d\t", yylineno);
     yyparse();
     printf("\n");
-    imprimirTab(tabela);
+    if(qtdErros == 0){
+        printf("\n\nPrograma Sintaticamente Correto\n");
+        imprimirTab(tabela);
+    }
     return 0;
 }
 
