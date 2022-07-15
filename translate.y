@@ -77,9 +77,8 @@
 
 %%
 
-program:  main '(' ')' '{' body return '}' {}
-    ;
-
+program:  main '(' ')' '{' body return '}'
+   ;
 
 main: datatype ILAVAMOSNOS
 ;
@@ -95,9 +94,9 @@ body: FOR '(' statement ';' condition ';' statement ')' '{' body '}'
 | IF '(' condition ')' '{' body '}' else
 | statement ';' 
 | body body
-| PRINTF '(' STR ')' ';'
-| PRINTF '('STR',' list_ids ')' ';'
-| LEIAME '('STR',' list_ids ')' ';'
+| PRINTF '(' string ')' ';'
+| PRINTF '(' string ',' list_ids ')' ';'
+| LEIAME '(' string ',' list_ids ')' ';'
 | break
 ;
 
@@ -106,8 +105,8 @@ else: ELSE '{' body '}'
 ;
 
 condition: value relop value 
-| TRUE 
-| FALSE
+| TRUE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
+| FALSE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 ;
 
 statement: datatype identificador init 
@@ -126,43 +125,44 @@ list_ids:
 | identificador
 | identificador'('identificador')'
 | identificador RECEBA identificador
-| identificador RECEBA NUMERO 
+| identificador RECEBA const
 ;
 
+const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
 
 expression: expression aritmetica expression
 | value
 ;
 
-aritmetica: PLUS {}
-| MINUS {}
-| MULT {}
-| DIV {}
-| EXP {}
+aritmetica: PLUS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
+| MINUS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
+| MULT {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
+| DIV {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
+| EXP {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
 ;
 
-relop: OU {}
-| II {}
-| MAIORIGUALQUE {}
-| MENORIGUALQUE {}
-| NOTIGUAL {}
-| GEMEAS {}
-| MAIORQUE {}
-| MENORQUE {}
+relop: OU {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| II {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MAIORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MENORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| NOTIGUAL {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| GEMEAS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MAIORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MENORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
 ;
 
-value: NUMERO {strcpy(tipo, "CONSTANTE");}
+value: const
 | list_ids
-| STR {strcpy(tipo, "STRING");}
+| string
 ;
+
+string: STR {adcSimb(&tabela, "STRING", yytext, yylineno, "VETOR_CHAR");}
 
 return: RETURN value ';' 
 | RETURN ';'
 ;
 
 identificador: ID { strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
-
-identificador2:  ID { char nome[100] = "VETOR<"; strcat(nome, tipo); strcat(nome, ">"); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, nome, yytext, yylineno, tipoSimbolo);}
 
 break: BREAK ';'
 
@@ -179,7 +179,6 @@ int main(void){
     iniciaArvore(&tabela);
     printf("%d\t", yylineno);
     yyparse();
-    printf("\n");
     if(qtdErros == 0){
         printf("\n\nPrograma Sintaticamente Correto\n");
         imprimirTab(tabela);

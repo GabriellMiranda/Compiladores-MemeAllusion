@@ -117,7 +117,7 @@ int buscar(char* palavra,NoDaArvore no){
 
 
 void imprimeArvore(ArvorePatricia *no){
-    if(EExterno(no)) imprimirLinha(&no->NoExterno.LinhaTabela.linha);
+    if(EExterno(no))imprimirLinha(&no->NoExterno.LinhaTabela.linha);
     else{
         imprimeArvore(no->NoExterno.NoInterno.esquerda);
         imprimeArvore(no->NoExterno.NoInterno.direita);
@@ -126,10 +126,11 @@ void imprimeArvore(ArvorePatricia *no){
 void imprimirTab(ArvorePatricia *no){
     printf("\n\n");
     printf("_________________________________________________________________________________________________\n");
-    printf("|                                  Tabela de símbolos                                           |\n");
+    printf("|                                      Tabela de símbolos                                       |\n");
     printf("_________________________________________________________________________________________________\n");
     printf("|             Simbolo           |    Tipo do Simbolo   |            Tipo           |  Nº Linha  |\n");
     imprimeArvore(no);
+    printf("_________________________________________________________________________________________________\n");
 }
 
 void adcSimb(NoDaArvore *no,char * tipo,char * yytext,int linha,char *tipoSimbolo){
