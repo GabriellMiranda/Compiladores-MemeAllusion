@@ -125,6 +125,9 @@ void imprimeArvore(ArvorePatricia *no){
 }
 void imprimirTab(ArvorePatricia *no){
     printf("\n\n");
+    printf("_________________________________________________________________________________________________\n");
+    printf("|                                  Tabela de símbolos                                           |\n");
+    printf("_________________________________________________________________________________________________\n");
     printf("|             Simbolo           |    Tipo do Simbolo   |            Tipo           |  Nº Linha  |\n");
     imprimeArvore(no);
 }
