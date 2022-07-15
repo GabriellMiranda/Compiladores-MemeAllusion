@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "TabelaDeSimbolos.h"
+#include "TabelaDeSimbolos.c"
 
 
 typedef enum{

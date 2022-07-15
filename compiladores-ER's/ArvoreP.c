@@ -84,7 +84,6 @@ NoDaArvore Insere(linhaTabela linha,NoDaArvore *no){
             i++;
 
         if(strcmp(linha.simbolo,noAtual->NoExterno.LinhaTabela.linha.simbolo) == 0){
-            noAtual->NoExterno.LinhaTabela.linha.linhaSimbolo[++noAtual->NoExterno.LinhaTabela.linha.posVetorLinha] = linha.linhaSimbolo[0];
             return *no;
         }
         else {
@@ -100,13 +99,13 @@ NoDaArvore Insere(linhaTabela linha,NoDaArvore *no){
 
 int buscar(char* palavra,NoDaArvore no){
     if(no == NULL){
-        return FALSE;
+        return false;
     }
     else {
         if (EExterno(no)) {
             if (strcmp(palavra, no->NoExterno.LinhaTabela.linha.simbolo) == 0)
-                return TRUE;
-            return FALSE;
+                return false;
+            return false;
         } else {
             if (A_menor_Equal_B(caractere(no->NoExterno.NoInterno.posicao, palavra),
                                 no->NoExterno.NoInterno.letraIndice))
@@ -125,14 +124,14 @@ void imprimeArvore(ArvorePatricia *no){
     }
 }
 void imprimirTab(ArvorePatricia *no){
+    printf("\n\n");
     printf("|             Simbolo           |    Tipo do Simbolo   |            Tipo           |  Nº Linha  |\n");
     imprimeArvore(no);
 }
 
 void adcSimb(NoDaArvore *no,char * tipo,char * yytext,int linha,char *tipoSimbolo){
     linhaTabela *linhaT = (linhaTabela *) malloc(sizeof(linhaTabela));
-    linhaT->posVetorLinha = 0;
-    linhaT->linhaSimbolo[0] = linha;
+    linhaT->linhaSimbolo = linha;
     linhaT->tipo = (char*) malloc(sizeof(tipo));
     linhaT->simbolo = (char *) malloc(sizeof (yytext));
     linhaT->tipoSimbolo = (char *) malloc(sizeof (tipoSimbolo));

@@ -1,10 +1,11 @@
 Daniel ilaVamosNos(){ 
     Daniel valor1;   
-    valor1 receba 0;
+    valor1 receba 0; // eu @
     paraZe(Daniel i receba 0; i MenorQue 0; i receba i + 1){ 
         valor1 receba valor1 + i; 
+
     }
-    seliga("%d", valor1);  
+    seliga("%d", valor1);   
     leiNewton 0;
 }
 

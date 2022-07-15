@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Jul 14 20:20:05 2022
+# Make data base, printed on Thu Jul 14 20:39:37 2022
 
 # Variables
 
@@ -251,9 +252,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 7998612): 23 files, no impossibilities.
+# . (device 66308, inode 7998612): 25 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -264,7 +265,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 20:18:55.770920736
+#  Last modified 2022-07-14 20:39:22.890603506
 #  File has been updated.
 #  Successfully updated.
 
@@ -289,7 +290,6 @@ all:
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
- 
 # @ := all
 # automatic
 # * := 
@@ -310,7 +310,7 @@ all:
 #  recipe to execute (from 'Makefile', line 2):
 	flex lex.l
 	yacc -d translate.y
-	gcc -o a.exe lex.yy.c translate.tab.c
+	gcc -o a.out lex.yy.c y.tab.c
 
 run:
 #  Implicit rule search has not been done.
@@ -340,12 +340,13 @@ instalarLex:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 329 B / avg = 10 B
-# current buf: size = 8162 B / used = 329 B / count = 31 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 349 B / avg = 10 B
+# current buf: size = 8162 B / used = 349 B / count = 33 / avg = 10 B
 
-# strcache performance: lookups = 41 / hit rate = 24%
+# strcache performance: lookups = 43 / hit rate = 23%
+ 
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=0/41=0%
-# Finished Make data base on Thu Jul 14 20:20:05 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/43=0%
+# Finished Make data base on Thu Jul 14 20:39:37 2022
 
  

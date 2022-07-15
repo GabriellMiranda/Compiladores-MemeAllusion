@@ -1,13 +1,23 @@
 %{
-    #include "translate.tab.h"
+    #include "ArvoreP.c"
+    #include "ArvoreP.h"
+    #include "y.tab.h"
     #include <stdio.h>
     #include <string.h>
     #include <stdlib.h>
     #include <ctype.h>
+
+    extern char *yytext;
     void yyerror(char *s);
     extern int yylineno; /* Variável responsável por armazenar a linha atual do arquivo fonte */
     int yylex();
     int yywrap();
+
+    char tipoSimbolo[100];
+    char tipo[100];
+    int linha;
+
+    ArvorePatricia *tabela;
 %}
 
 %token INT
@@ -72,10 +82,10 @@ program:  main '(' ')' '{' body return '}' {}
 main: datatype ILAVAMOSNOS
 ;
 
-datatype: INT 
-| FLOAT 
-| CHAR
-| DOUBLE
+datatype: INT {strcpy(tipo, "INT");}
+| FLOAT {strcpy(tipo, "FLOAT");}
+| CHAR {strcpy(tipo, "CHAR");}
+| DOUBLE {strcpy(tipo, "DOUBLE");}
 ;
 
 body: FOR '(' statement ';' condition ';' statement ')' '{' body '}'
@@ -139,16 +149,18 @@ relop: OU {}
 | MENORQUE {}
 ;
 
-value: NUMERO
+value: NUMERO {strcpy(tipo, "CONSTANTE");}
 | list_ids
-| STR
+| STR {strcpy(tipo, "STRING");}
 ;
 
 return: RETURN value ';' 
 | RETURN ';'
 ;
 
-identificador: ID 
+identificador: ID { strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
+
+identificador2:  ID { char nome[100] = "VETOR<"; strcat(nome, tipo); strcat(nome, ">"); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, nome, yytext, yylineno, tipoSimbolo);}
 
 break: BREAK ';'
 
@@ -161,8 +173,11 @@ void yyerror(char *s) {
 }
 
 int main(void){
+    iniciaArvore(&tabela);
     printf("%d\t", yylineno);
     yyparse();
+    printf("\n");
+    imprimirTab(tabela);
     return 0;
 }
 

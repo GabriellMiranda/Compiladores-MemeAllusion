@@ -1,7 +1,7 @@
 all:
 	flex lex.l
 	yacc -d translate.y
-	gcc -o a.exe lex.yy.c translate.tab.c
+	gcc -o a.out lex.yy.c y.tab.c
 run:
 	./a.out  <  ${file}
 instalarLex:

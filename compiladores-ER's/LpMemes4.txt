@@ -1,4 +1,4 @@
-//Encontre o maior e o menor valor em um vetor[10] //
+//Encontre o maior e o menor valor em um vetor[10] @
 Daniel ilaVamosNos(){
     Daniel n receba 10;
     Thais vet(n);

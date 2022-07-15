@@ -1,7 +1,7 @@
 %{
   #include <stdio.h>
   #include <string.h>
-  #include "translate.tab.h"
+  #include "y.tab.h"
   void yyerror_lex(char *s);
 
 %}
@@ -10,6 +10,7 @@
 
 %option noyywrap
 %option yylineno 
+
 
 /*definições regulares*/
 delim [ \t]
@@ -21,7 +22,7 @@ numero ((-){digito}+|(\+){digito}+)
 letra [a-zA-Z]
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
 ponteiro (_x9){letra}+
-comentario  "//"(.|\n)*"//"
+comentario  [//]([^@]|\n)*[@]
 simbolos [-()<>=+*/;{}.]  
 
 break "parecomisso"
@@ -54,7 +55,8 @@ id {letra}({letra}|{digito})*
 
 {ws}              {printf("%s", yytext);}
 \n                {printf("\n%d\t", yylineno);}
-{comentario}      {printf("\n%d\t", yylineno);}
+
+{comentario}\n      { }
 
 {int}             {printf("%s", yytext); return(INT);}//OK
 {float}           {printf("%s", yytext); return(FLOAT);}//OK
