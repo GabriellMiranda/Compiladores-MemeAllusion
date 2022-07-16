@@ -39,6 +39,7 @@ return "leiNewton"
 do "faz"
 erro [.]|[^]|[~]|[$]
 
+
 float "Thais"
 double "Fabricio"
 char "Nacif"

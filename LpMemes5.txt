@@ -4,7 +4,7 @@ Daniel ilaVamosNos(){
     paraZe(Daniel i receba 3; i MenorIgualQue n; i receba i + 1){
         soma receba fib1 + fib2;
         fib1 receba fib2;
-        fib2 receba soma;;
+        fib2 receba soma;
     }
     seliga("%d",fib2);
     leiNewton 0;

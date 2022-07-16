@@ -174,7 +174,7 @@ break: BREAK ';'
 
 void yyerror(char *s) {
     printf("\n\nErro sintático próximo à linha %d\n", yylineno);
-    printf("Possivel erro sintatico antes ou depois do termo --> %s \n", yytext);
+    printf("Possivel erro sintatico antes ou depois do termo --> %s \n\n", yytext);
     qtdErros++;
 }
 
