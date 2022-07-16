@@ -21,7 +21,7 @@ negativo (-){digito}+
 numero ((-){digito}+|(\+){digito}+)
 letra [a-zA-Z]
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
-ponteiro (_x9){letra}+
+
 comentario  [//]([^@]|\n)*[@]
 
 break "parecomisso"
@@ -38,18 +38,17 @@ goto "vai"
 return "leiNewton"
 do "faz"
 erro [.]|[^]|[~]|[$]
-
+default "padraozinho"
 
 float "Thais"
 double "Fabricio"
 char "Nacif"
-int "Daniel"
+int "Daniel" 
 
 struct "fusao"
 sizeof "saizonof"
 malloc "alok"
 id {letra}({letra}|{digito})*
-
 /*regras*/
 %%
 
@@ -90,6 +89,7 @@ id {letra}({letra}|{digito})*
 "ou"              {printf("%s", yytext); return(OU);}//OK
 
 {return}          {printf("%s", yytext); return(RETURN);}//OK
+{default}         {printf("%s", yytext); return(DEFAULT);}//OK
 {printf}          {printf("%s", yytext); return(PRINTF);}
 {for}             {printf("%s", yytext); return(FOR);}
 {while}           {printf("%s", yytext); return(WHILE);}
@@ -100,13 +100,12 @@ id {letra}({letra}|{digito})*
 {goto}            {printf("%s", yytext); return(GOTO);}
 {malloc}	        {printf("%s", yytext); return(MALLOC);}
 {sizeof}          {printf("%s", yytext); return(SIZEOF);}
-{ponteiro}        {printf("%s", yytext); return(PONTEIRO);}
 {break}		        {printf("%s", yytext); return(BREAK);}
 {do}              {printf("%s", yytext); return(DO);}
 {id}              {printf("%s", yytext); return(ID);}//OK
 {numero}          {printf("%s", yytext); return NUMERO;}//OK
 {decimal}         {printf("%s", yytext); return NUMERO;}//OK
-
+{}
 "("                {printf("%s", yytext); return('(');}//OK
 ")"                {printf("%s", yytext); return(')');}//OK
 ":"                {printf("%s", yytext); return(':');}

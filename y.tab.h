@@ -89,11 +89,11 @@ extern int yydebug;
     GOTO = 290,                    /* GOTO  */
     MALLOC = 291,                  /* MALLOC  */
     SIZEOF = 292,                  /* SIZEOF  */
-    PONTEIRO = 293,                /* PONTEIRO  */
-    BREAK = 294,                   /* BREAK  */
-    STR = 295,                     /* STR  */
-    LEIAME = 296,                  /* LEIAME  */
-    NUMERO = 297,                  /* NUMERO  */
+    BREAK = 293,                   /* BREAK  */
+    STR = 294,                     /* STR  */
+    LEIAME = 295,                  /* LEIAME  */
+    NUMERO = 296,                  /* NUMERO  */
+    DEFAULT = 297,                 /* DEFAULT  */
     PLUS = 298,                    /* PLUS  */
     MINUS = 299,                   /* MINUS  */
     DIV = 300,                     /* DIV  */
@@ -143,11 +143,11 @@ extern int yydebug;
 #define GOTO 290
 #define MALLOC 291
 #define SIZEOF 292
-#define PONTEIRO 293
-#define BREAK 294
-#define STR 295
-#define LEIAME 296
-#define NUMERO 297
+#define BREAK 293
+#define STR 294
+#define LEIAME 295
+#define NUMERO 296
+#define DEFAULT 297
 #define PLUS 298
 #define MINUS 299
 #define DIV 300

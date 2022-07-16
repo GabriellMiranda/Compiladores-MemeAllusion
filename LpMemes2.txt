@@ -1,5 +1,5 @@
 Daniel ilaVamosNos(){
-    Thais valor numero;
+    Thais valor receba numero;
     Thais soma receba 0;
     Thais media;
     Daniel cont receba 0;

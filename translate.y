@@ -62,11 +62,11 @@
 %token GOTO
 %token MALLOC
 %token SIZEOF
-%token PONTEIRO
 %token BREAK
 %token STR
 %token LEIAME
 %token NUMERO
+%token DEFAULT
 %left PLUS
 %left MINUS
 %left DIV
@@ -97,7 +97,15 @@ body: FOR '(' statement ';' condition ';' statement ')' '{' body '}'
 | PRINTF '(' string ')' ';'
 | PRINTF '(' string ',' list_ids ')' ';'
 | LEIAME '(' string ',' list_ids ')' ';'
+| SWITCH '('identificador')' '{'case'}'
+| DO '{' body '}' WHILE'('condition')'';'
 | break
+;
+
+
+case: CASE value ':' body break case  
+| CASE value ':' body break 
+| DEFAULT ':' body  break
 ;
 
 else: ELSE '{' body '}'
@@ -127,7 +135,6 @@ list_ids:
 | identificador RECEBA identificador
 | identificador RECEBA const
 ;
-
 
 
 const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
