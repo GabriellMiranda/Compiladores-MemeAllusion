@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 15 19:38:18 2022
+# Make data base, printed on Fri Jul 15 20:49:25 2022
 
 # Variables
 
@@ -89,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 160855
+VSCODE_PID = 172771
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -191,7 +191,7 @@ SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
 MANAGERPID = 1632
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 160803
+GIO_LAUNCHED_DESKTOP_FILE_PID = 172715
 # environment
 _ = /snap/code/101/usr/share/code/code
 # environment
@@ -299,12 +299,12 @@ all:
 # automatic
 # % := 
 # automatic
- 
 # ^ := 
 # automatic
 # ? := 
 # automatic
 # | := 
+ 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 2):
@@ -346,6 +346,6 @@ instalarLex:
 # strcache performance: lookups = 42 / hit rate = 23%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Fri Jul 15 19:38:18 2022
+# Finished Make data base on Fri Jul 15 20:49:25 2022
 
  

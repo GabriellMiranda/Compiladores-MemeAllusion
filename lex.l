@@ -23,7 +23,6 @@ letra [a-zA-Z]
 decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
 ponteiro (_x9){letra}+
 comentario  [//]([^@]|\n)*[@]
-simbolos [-()<>=+*/;{}.]  
 
 break "parecomisso"
 typedef   "tipoIsso"
@@ -117,10 +116,13 @@ id {letra}({letra}|{digito})*
 
 
 ["].*["]           {printf("%s", yytext); return(STR);}//OK
+
+.                  {yyerror_lex(yytext);}
 %%
 
 void yyerror_lex(char *s) {
-    printf("\n\nErro léxico próximo a linha %d: %s\n", yylineno, s);
+    printf("\n\nErro léxico próximo a linha %d, Lexema não reconhecido: %s\n", yylineno, s);
+    exit(0);
 }
 
 int yywarp(void){
