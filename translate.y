@@ -124,7 +124,6 @@ statement: datatype identificador init
 ;
 
 init: RECEBA value 
-|
 ;
 
 list_ids:    
@@ -172,8 +171,10 @@ return: RETURN value ';'
 ;
 
 identificador: ID { strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
+;
 
 break: BREAK ';'
+;
 
 %%
 

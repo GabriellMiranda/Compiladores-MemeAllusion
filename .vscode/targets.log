@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 16 16:09:23 2022
+# Make data base, printed on Sun Jul 17 16:39:14 2022
 
 # Variables
 
@@ -89,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 235881
+VSCODE_PID = 49361
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -97,7 +97,7 @@ XDG_SESSION_TYPE = x11
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/1942,unix/gabriel:/tmp/.ICE-unix/1942
+SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/1914,unix/gabriel:/tmp/.ICE-unix/1914
 # automatic
 *F = $(notdir $*)
 # environment
@@ -141,7 +141,7 @@ SNAP_USER_COMMON = /home/gabriel/snap/code/common
 # environment
 SNAP = /snap/code/101
 # environment
-INVOCATION_ID = 7015ef764fe6450c9471f5cf0f295427
+INVOCATION_ID = a95d2c54a99f4f5fb0e63d5c7f20358b
 # environment
 SNAP_REVISION = 101
 # environment
@@ -173,7 +173,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2001
+SYSTEMD_EXEC_PID = 1971
 # environment
 DISPLAY = :1
 # environment
@@ -189,9 +189,9 @@ SNAP_DATA = /var/snap/code/101
 # environment
 SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
-MANAGERPID = 1632
+MANAGERPID = 1592
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 235831
+GIO_LAUNCHED_DESKTOP_FILE_PID = 49312
 # environment
 _ = /snap/code/101/usr/share/code/code
 # environment
@@ -201,7 +201,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/gabriel/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:36032
+JOURNAL_STREAM = 8:34876
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -251,9 +251,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 6947335): 24 files, no impossibilities.
+# . (device 66308, inode 6947784): 25 files, no impossibilities.
 
-# 24 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -264,7 +264,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-16 16:09:18.687393134
+#  Last modified 2022-07-17 16:39:09.313823433
 #  File has been updated.
 #  Successfully updated.
 
@@ -294,11 +294,11 @@ all:
 # * := 
 # automatic
 # < := 
+ 
 # automatic
 # + := 
 # automatic
 # % := 
- 
 # automatic
 # ^ := 
 # automatic
@@ -340,12 +340,12 @@ instalarLex:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 322 B / avg = 10 B
-# current buf: size = 8162 B / used = 322 B / count = 32 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 328 B / avg = 9 B
+# current buf: size = 8162 B / used = 328 B / count = 33 / avg = 9 B
 
-# strcache performance: lookups = 42 / hit rate = 23%
+# strcache performance: lookups = 43 / hit rate = 23%
 # hash-table stats:
-# Load=32/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Sat Jul 16 16:09:23 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/43=0%
+# Finished Make data base on Sun Jul 17 16:39:14 2022
 
  
