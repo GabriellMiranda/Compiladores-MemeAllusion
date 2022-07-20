@@ -102,9 +102,9 @@ id {letra}({letra}|{digito})*
 {sizeof}          {printf("%s", yytext); return(SIZEOF);}
 {break}		        {printf("%s", yytext); return(BREAK);}
 {do}              {printf("%s", yytext); return(DO);}
-{id}              {printf("%s", yytext); return(ID);}//OK
-{numero}          {printf("%s", yytext); return NUMERO;}//OK
-{decimal}         {printf("%s", yytext); return NUMERO;}//OK
+{id}              {printf("%s", yytext); yylval.ident = strdup(yytext); return (ID);}//OK
+{numero}          {printf("%s", yytext); yylval.valor = atoi(yytext); return(NUMERO);}//OK
+{decimal}         {printf("%s", yytext); return DECIMAL;}//OK
 {}
 "("                {printf("%s", yytext); return('(');}//OK
 ")"                {printf("%s", yytext); return(')');}//OK

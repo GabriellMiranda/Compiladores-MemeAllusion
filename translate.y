@@ -1,6 +1,6 @@
 %{
-    #include "TabelaSimbolos/ArvoreP.c"
-    #include "TabelaSimbolos/ArvoreP.h"
+    #include "ArvoreP.c"
+    #include "ArvoreP.h"
     #include "y.tab.h"
     #include <stdio.h>
     #include <string.h>
@@ -52,6 +52,19 @@
     }
 %}
 
+%union {
+    int valor;
+    char *ident;
+};
+
+
+%token FALSE
+%token TRUE
+%token LETRA
+%token <valor> DECIMAL
+%token <valor> NUMERO
+%token <ident> ID
+
 %token INT
 %token FLOAT
 %token DOUBLE
@@ -59,13 +72,7 @@
 %token STRUCT
 
 
-%token FALSE
-%token TRUE
-%token LETRA
-%token DECIMAL
-%token NEGATIVO
-%token POSITIVO
-%token ID
+
 
 %token ILAVAMOSNOS
 %token RECEBA
@@ -95,7 +102,7 @@
 %token BREAK
 %token STR
 %token LEIAME
-%token NUMERO
+
 %token DEFAULT
 %left PLUS
 %left MINUS
@@ -167,8 +174,10 @@ list_ids:
 
 
 const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
+| DECIMAL {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
+;
 
-expression: expression aritmetica expression {printf("%s %s\n",var1,var2);}
+expression: expression aritmetica expression {}
 | value
 ;
 
@@ -200,14 +209,13 @@ return: RETURN value ';'
 | RETURN ';'
 ;
 
-identificador: ID {if(strcmp(var1,"") == 0) strcpy(var1,yytext); else {strcpy(var2,yytext);strcpy(var1,"");};strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
+identificador: ID {printf("%s", $<ident>$); $<ident>$ = strdup($<ident>1); ; strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
 ;
 
 break: BREAK ';'
 ;
 
 %%
-
 
 
 void yyerror(char *s) {

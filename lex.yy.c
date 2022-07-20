@@ -1140,17 +1140,17 @@ YY_RULE_SETUP
 case 43:
 YY_RULE_SETUP
 #line 105 "lex.l"
-{printf("%s", yytext); return(ID);}//OK
+{printf("%s", yytext); yylval.ident = strdup(yytext); return (ID);}//OK
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
 #line 106 "lex.l"
-{printf("%s", yytext); return NUMERO;}//OK
+{printf("%s", yytext); yylval.valor = atoi(yytext); return(NUMERO);}//OK
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
 #line 107 "lex.l"
-{printf("%s", yytext); return NUMERO;}//OK
+{printf("%s", yytext); return DECIMAL;}//OK
 	YY_BREAK
 
 case 46:

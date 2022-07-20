@@ -54,52 +54,50 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    INT = 258,                     /* INT  */
-    FLOAT = 259,                   /* FLOAT  */
-    DOUBLE = 260,                  /* DOUBLE  */
-    CHAR = 261,                    /* CHAR  */
-    STRUCT = 262,                  /* STRUCT  */
-    FALSE = 263,                   /* FALSE  */
-    TRUE = 264,                    /* TRUE  */
-    LETRA = 265,                   /* LETRA  */
-    DECIMAL = 266,                 /* DECIMAL  */
-    NEGATIVO = 267,                /* NEGATIVO  */
-    POSITIVO = 268,                /* POSITIVO  */
-    ID = 269,                      /* ID  */
-    ILAVAMOSNOS = 270,             /* ILAVAMOSNOS  */
-    RECEBA = 271,                  /* RECEBA  */
-    MENORQUE = 272,                /* MENORQUE  */
-    MAIORQUE = 273,                /* MAIORQUE  */
-    GEMEAS = 274,                  /* GEMEAS  */
-    NOTIGUAL = 275,                /* NOTIGUAL  */
-    MENORIGUALQUE = 276,           /* MENORIGUALQUE  */
-    MAIORIGUALQUE = 277,           /* MAIORIGUALQUE  */
-    II = 278,                      /* II  */
-    OU = 279,                      /* OU  */
-    CONTINUE = 280,                /* CONTINUE  */
-    TYPEDEF = 281,                 /* TYPEDEF  */
-    RETURN = 282,                  /* RETURN  */
-    PRINTF = 283,                  /* PRINTF  */
-    FOR = 284,                     /* FOR  */
-    WHILE = 285,                   /* WHILE  */
-    IF = 286,                      /* IF  */
-    ELSE = 287,                    /* ELSE  */
-    CASE = 288,                    /* CASE  */
-    SWITCH = 289,                  /* SWITCH  */
-    GOTO = 290,                    /* GOTO  */
-    MALLOC = 291,                  /* MALLOC  */
-    SIZEOF = 292,                  /* SIZEOF  */
-    BREAK = 293,                   /* BREAK  */
-    STR = 294,                     /* STR  */
-    LEIAME = 295,                  /* LEIAME  */
-    NUMERO = 296,                  /* NUMERO  */
-    DEFAULT = 297,                 /* DEFAULT  */
-    PLUS = 298,                    /* PLUS  */
-    MINUS = 299,                   /* MINUS  */
-    DIV = 300,                     /* DIV  */
-    MULT = 301,                    /* MULT  */
-    EXP = 302,                     /* EXP  */
-    DO = 303                       /* DO  */
+    FALSE = 258,                   /* FALSE  */
+    TRUE = 259,                    /* TRUE  */
+    LETRA = 260,                   /* LETRA  */
+    DECIMAL = 261,                 /* DECIMAL  */
+    NUMERO = 262,                  /* NUMERO  */
+    ID = 263,                      /* ID  */
+    INT = 264,                     /* INT  */
+    FLOAT = 265,                   /* FLOAT  */
+    DOUBLE = 266,                  /* DOUBLE  */
+    CHAR = 267,                    /* CHAR  */
+    STRUCT = 268,                  /* STRUCT  */
+    ILAVAMOSNOS = 269,             /* ILAVAMOSNOS  */
+    RECEBA = 270,                  /* RECEBA  */
+    MENORQUE = 271,                /* MENORQUE  */
+    MAIORQUE = 272,                /* MAIORQUE  */
+    GEMEAS = 273,                  /* GEMEAS  */
+    NOTIGUAL = 274,                /* NOTIGUAL  */
+    MENORIGUALQUE = 275,           /* MENORIGUALQUE  */
+    MAIORIGUALQUE = 276,           /* MAIORIGUALQUE  */
+    II = 277,                      /* II  */
+    OU = 278,                      /* OU  */
+    CONTINUE = 279,                /* CONTINUE  */
+    TYPEDEF = 280,                 /* TYPEDEF  */
+    RETURN = 281,                  /* RETURN  */
+    PRINTF = 282,                  /* PRINTF  */
+    FOR = 283,                     /* FOR  */
+    WHILE = 284,                   /* WHILE  */
+    IF = 285,                      /* IF  */
+    ELSE = 286,                    /* ELSE  */
+    CASE = 287,                    /* CASE  */
+    SWITCH = 288,                  /* SWITCH  */
+    GOTO = 289,                    /* GOTO  */
+    MALLOC = 290,                  /* MALLOC  */
+    SIZEOF = 291,                  /* SIZEOF  */
+    BREAK = 292,                   /* BREAK  */
+    STR = 293,                     /* STR  */
+    LEIAME = 294,                  /* LEIAME  */
+    DEFAULT = 295,                 /* DEFAULT  */
+    PLUS = 296,                    /* PLUS  */
+    MINUS = 297,                   /* MINUS  */
+    DIV = 298,                     /* DIV  */
+    MULT = 299,                    /* MULT  */
+    EXP = 300,                     /* EXP  */
+    DO = 301                       /* DO  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -108,56 +106,64 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define INT 258
-#define FLOAT 259
-#define DOUBLE 260
-#define CHAR 261
-#define STRUCT 262
-#define FALSE 263
-#define TRUE 264
-#define LETRA 265
-#define DECIMAL 266
-#define NEGATIVO 267
-#define POSITIVO 268
-#define ID 269
-#define ILAVAMOSNOS 270
-#define RECEBA 271
-#define MENORQUE 272
-#define MAIORQUE 273
-#define GEMEAS 274
-#define NOTIGUAL 275
-#define MENORIGUALQUE 276
-#define MAIORIGUALQUE 277
-#define II 278
-#define OU 279
-#define CONTINUE 280
-#define TYPEDEF 281
-#define RETURN 282
-#define PRINTF 283
-#define FOR 284
-#define WHILE 285
-#define IF 286
-#define ELSE 287
-#define CASE 288
-#define SWITCH 289
-#define GOTO 290
-#define MALLOC 291
-#define SIZEOF 292
-#define BREAK 293
-#define STR 294
-#define LEIAME 295
-#define NUMERO 296
-#define DEFAULT 297
-#define PLUS 298
-#define MINUS 299
-#define DIV 300
-#define MULT 301
-#define EXP 302
-#define DO 303
+#define FALSE 258
+#define TRUE 259
+#define LETRA 260
+#define DECIMAL 261
+#define NUMERO 262
+#define ID 263
+#define INT 264
+#define FLOAT 265
+#define DOUBLE 266
+#define CHAR 267
+#define STRUCT 268
+#define ILAVAMOSNOS 269
+#define RECEBA 270
+#define MENORQUE 271
+#define MAIORQUE 272
+#define GEMEAS 273
+#define NOTIGUAL 274
+#define MENORIGUALQUE 275
+#define MAIORIGUALQUE 276
+#define II 277
+#define OU 278
+#define CONTINUE 279
+#define TYPEDEF 280
+#define RETURN 281
+#define PRINTF 282
+#define FOR 283
+#define WHILE 284
+#define IF 285
+#define ELSE 286
+#define CASE 287
+#define SWITCH 288
+#define GOTO 289
+#define MALLOC 290
+#define SIZEOF 291
+#define BREAK 292
+#define STR 293
+#define LEIAME 294
+#define DEFAULT 295
+#define PLUS 296
+#define MINUS 297
+#define DIV 298
+#define MULT 299
+#define EXP 300
+#define DO 301
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 55 "translate.y"
+
+    int valor;
+    char *ident;
+
+#line 164 "y.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
