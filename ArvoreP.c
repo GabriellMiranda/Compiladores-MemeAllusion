@@ -97,20 +97,18 @@ NoDaArvore Insere(linhaTabela linha,NoDaArvore *no){
     }
 }
 
-int buscar(char* palavra,NoDaArvore no){
-    if(no == NULL){
-        return false;
-    }
-    else {
+void buscar(char* simbolo,NoDaArvore no,char *tipo){
+    if(no != NULL){
         if (EExterno(no)) {
-            if (strcmp(palavra, no->NoExterno.LinhaTabela.linha.simbolo) == 0)
-                return false;
-            return false;
-        } else {
-            if (A_menor_Equal_B(caractere(no->NoExterno.NoInterno.posicao, palavra),
+            if (strcmp(simbolo, no->NoExterno.LinhaTabela.linha.simbolo) == 0)
+                strcpy(tipo,no->NoExterno.LinhaTabela.linha.tipo);
+            else strcpy(tipo,"");
+        }
+        else {
+            if (A_menor_Equal_B(caractere(no->NoExterno.NoInterno.posicao, simbolo),
                                 no->NoExterno.NoInterno.letraIndice))
-                buscar(palavra, no->NoExterno.NoInterno.esquerda);
-            else buscar(palavra, no->NoExterno.NoInterno.direita);
+                buscar(simbolo, no->NoExterno.NoInterno.esquerda,simbolo);
+            else buscar(simbolo, no->NoExterno.NoInterno.direita,simbolo);
         }
     }
 }

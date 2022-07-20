@@ -1,6 +1,6 @@
 %{
-    #include "ArvoreP.c"
-    #include "ArvoreP.h"
+    #include "TabelaSimbolos/ArvoreP.c"
+    #include "TabelaSimbolos/ArvoreP.h"
     #include "y.tab.h"
     #include <stdio.h>
     #include <string.h>
@@ -19,7 +19,37 @@
     char tipo[100];
     int linha;
 
+
+    char var1[100];
+    char var2[100];
     ArvorePatricia *tabela;
+
+    int TypeIsCorrect(char *var1, char *var2){
+    	char *tipo1 = (char*)malloc(100 * sizeof(char));
+    	char *tipo2 = (char*)malloc(100 * sizeof(char));
+    	buscar(var1,tabela,tipo1);
+    	buscar(var2,tabela,tipo2);
+    	if(strcmp(tipo1,"") == 0){
+    	    printf("\nErro semântico na linha %d, Variável %s não foi declarada\n",yylineno,var1);
+    	    return false;
+    	}
+    	else if(strcmp(tipo2,"") == 0){
+            printf("\nErro semântico na linha %d, Variável %s não foi declarada\n",yylineno,var2);
+            return false;
+        }
+        else{
+             if(strcmp(tipo1,tipo2) == 0){
+		return true;
+	     }
+	     else if((strcmp(tipo1,"CONST") == 0 && strcmp(tipo2,"INT") == 0) || (strcmp(tipo2,"CONST") == 0 && strcmp(tipo1,"INT") == 0)){
+	     	return true;
+	     }
+	     else {
+	     	printf("\nErro semântico na linha %d, Os tipos %s e %s são incompatíveis\n",yylineno,tipo1,tipo2);
+	     	return false;
+	     }
+    	}
+    }
 %}
 
 %token INT
@@ -138,7 +168,7 @@ list_ids:
 
 const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
 
-expression: expression aritmetica expression
+expression: expression aritmetica expression {printf("%s %s\n",var1,var2);}
 | value
 ;
 
@@ -170,7 +200,7 @@ return: RETURN value ';'
 | RETURN ';'
 ;
 
-identificador: ID { strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
+identificador: ID {if(strcmp(var1,"") == 0) strcpy(var1,yytext); else {strcpy(var2,yytext);strcpy(var1,"");};strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
 ;
 
 break: BREAK ';'

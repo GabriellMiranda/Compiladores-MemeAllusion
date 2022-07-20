@@ -50,7 +50,7 @@ void imprimeArvore(ArvorePatricia *no);
 void imprimirTab(ArvorePatricia *no);
 NoDaArvore Insere(linhaTabela linha,NoDaArvore *no);
 void InserirNaArvore(linhaTabela linha,NoDaArvore *arvore);
-int buscar(char* palavra,NoDaArvore no);//imprime a palavra descripta
+void buscar(char* simbolo,NoDaArvore no,char *tipo);//imprime a palavra descripta
 void adcSimb(NoDaArvore *no,char * tipo,char * yytext,int linha,char *tipoSimbolo);
 
 #endif //TPCOMPILADORES_ARVOREP_H
