@@ -52,5 +52,6 @@ NoDaArvore Insere(linhaTabela linha,NoDaArvore *no);
 void InserirNaArvore(linhaTabela linha,NoDaArvore *arvore);
 void buscar(char* simbolo,NoDaArvore no,char *tipo);//imprime a palavra descripta
 void adcSimb(NoDaArvore *no,char * tipo,char * yytext,int linha,char *tipoSimbolo);
+int search(char *simbolo, NoDaArvore no);
 
 #endif //TPCOMPILADORES_ARVOREP_H

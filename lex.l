@@ -16,11 +16,9 @@
 delim [ \t]
 ws {delim}+
 digito [0-9]
-positivo ((\+){digito}+|{digito}+)
-negativo (-){digito}+
-numero ((-){digito}+|(\+){digito}+)
+numero ((-){digito}+|(\+){digito}+|{digito}+)
 letra [a-zA-Z]
-decimal ({positivo}|{negativo})(\.{digito}+)?(E[+]?{digito}+)?
+decimal ({numero})(\.{digito}+)?(E[+]?{digito}+)?
 
 comentario  [//]([^@]|\n)*[@]
 
@@ -103,8 +101,8 @@ id {letra}({letra}|{digito})*
 {break}		        {printf("%s", yytext); return(BREAK);}
 {do}              {printf("%s", yytext); return(DO);}
 {id}              {printf("%s", yytext); yylval.ident = strdup(yytext); return (ID);}//OK
-{numero}          {printf("%s", yytext); yylval.valor = atoi(yytext); return(NUMERO);}//OK
-{decimal}         {printf("%s", yytext); return DECIMAL;}//OK
+{numero}          {printf("%s", yytext); yylval.ident = strdup(yytext); return(NUMERO);}//OK
+{decimal}         {printf("%s", yytext); yylval.ident = strdup(yytext); return(DECIMAL);}//OK
 {}
 "("                {printf("%s", yytext); return('(');}//OK
 ")"                {printf("%s", yytext); return(')');}//OK

@@ -82,8 +82,7 @@ NoDaArvore Insere(linhaTabela linha,NoDaArvore *no){
         char letraDifere;
         while (caractere(i,linha.simbolo) == caractere(i,noAtual->NoExterno.LinhaTabela.linha.simbolo))
             i++;
-
-        if(strcmp(linha.simbolo,noAtual->NoExterno.LinhaTabela.linha.simbolo) == 0){
+        if(search(linha.simbolo, *no)){
             return *no;
         }
         else {
@@ -107,12 +106,27 @@ void buscar(char* simbolo,NoDaArvore no,char *tipo){
         else {
             if (A_menor_Equal_B(caractere(no->NoExterno.NoInterno.posicao, simbolo),
                                 no->NoExterno.NoInterno.letraIndice))
-                buscar(simbolo, no->NoExterno.NoInterno.esquerda,simbolo);
-            else buscar(simbolo, no->NoExterno.NoInterno.direita,simbolo);
+                buscar(simbolo, no->NoExterno.NoInterno.esquerda,tipo);
+            else buscar(simbolo, no->NoExterno.NoInterno.direita,tipo);
         }
     }
 }
 
+int search(char *simbolo, NoDaArvore no){
+    if(no != NULL){
+        if (EExterno(no)) {
+            if (strcmp(simbolo, no->NoExterno.LinhaTabela.linha.simbolo) == 0)
+               return true;
+            else return false;
+        }
+        else {
+            if (A_menor_Equal_B(caractere(no->NoExterno.NoInterno.posicao, simbolo),
+                                no->NoExterno.NoInterno.letraIndice))
+               return search(simbolo, no->NoExterno.NoInterno.esquerda);
+            else return search(simbolo, no->NoExterno.NoInterno.direita);
+        }
+    }
+}
 
 void imprimeArvore(ArvorePatricia *no){
     if(EExterno(no))imprimirLinha(&no->NoExterno.LinhaTabela.linha);

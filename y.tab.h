@@ -155,12 +155,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 55 "translate.y"
+#line 49 "translate.y"
 
-    int valor;
     char *ident;
 
-#line 164 "y.tab.h"
+#line 163 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

@@ -1,0 +1,10 @@
+Daniel ilaVamosNos(){
+    Thais valorS receba 0.1;
+    Daniel valor receba 1;
+    valor receba 1 + 1;
+    Daniel tipo receba 1;
+    hipotese(valor MenorQue 1.1){
+        seliga("mano");
+    }
+    leiNewton 0;
+}

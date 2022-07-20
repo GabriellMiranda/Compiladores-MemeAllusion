@@ -24,36 +24,29 @@
     char var2[100];
     ArvorePatricia *tabela;
 
-    int TypeIsCorrect(char *var1, char *var2){
+    void TypeIsCorrect(char *var1, char *var2){
     	char *tipo1 = (char*)malloc(100 * sizeof(char));
     	char *tipo2 = (char*)malloc(100 * sizeof(char));
     	buscar(var1,tabela,tipo1);
     	buscar(var2,tabela,tipo2);
     	if(strcmp(tipo1,"") == 0){
-    	    printf("\nErro semântico na linha %d, Variável %s não foi declarada\n",yylineno,var1);
-    	    return false;
+    	    printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var1);
+            exit(1);
     	}
     	else if(strcmp(tipo2,"") == 0){
-            printf("\nErro semântico na linha %d, Variável %s não foi declarada\n",yylineno,var2);
-            return false;
+            printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var2);
+            exit(1);
         }
         else{
-             if(strcmp(tipo1,tipo2) == 0){
-		return true;
-	     }
-	     else if((strcmp(tipo1,"CONST") == 0 && strcmp(tipo2,"INT") == 0) || (strcmp(tipo2,"CONST") == 0 && strcmp(tipo1,"INT") == 0)){
-	     	return true;
-	     }
-	     else {
-	     	printf("\nErro semântico na linha %d, Os tipos %s e %s são incompatíveis\n",yylineno,tipo1,tipo2);
-	     	return false;
-	     }
-    	}
+            if(strcmp(tipo1,tipo2) != 0){
+                printf("\nErro semântico na linha %d, Os tipos dos termos '%s' e '%s' são incompatíveis\n",yylineno,var1,var2);
+                exit(1);
+            }
+        }
     }
 %}
 
 %union {
-    int valor;
     char *ident;
 };
 
@@ -61,8 +54,8 @@
 %token FALSE
 %token TRUE
 %token LETRA
-%token <valor> DECIMAL
-%token <valor> NUMERO
+%token <ident> DECIMAL
+%token <ident> NUMERO
 %token <ident> ID
 
 %token INT
@@ -70,9 +63,6 @@
 %token DOUBLE
 %token CHAR
 %token STRUCT
-
-
-
 
 %token ILAVAMOSNOS
 %token RECEBA
@@ -114,7 +104,7 @@
 
 %%
 
-program:  main '(' ')' '{' body return '}'
+program:  main '(' ')' '{' body return '}' 
    ;
 
 main: datatype ILAVAMOSNOS
@@ -149,35 +139,39 @@ else: ELSE '{' body '}'
 |
 ;
 
-condition: value relop value 
+condition: value relop value
 | TRUE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 | FALSE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 ;
 
-statement: datatype identificador init 
-| identificador RECEBA expression 
-| identificador relop expression
+statement: datatype identificador RECEBA value {TypeIsCorrect($<ident>1,  $<ident>3);}
+| identificador RECEBA expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+| identificador relop expression {TypeIsCorrect($<ident>1,  $<ident>3);}
 | datatype list_ids 
 ;
 
-init: RECEBA value 
-;
 
 list_ids:    
 | list_ids',' list_ids  
 | list_ids',' identificador
 | identificador
 | identificador'('identificador')'
-| identificador RECEBA identificador
-| identificador RECEBA const
+| identificador RECEBA identificador {TypeIsCorrect($<ident>1,  $<ident>3);}
+| identificador RECEBA const {TypeIsCorrect($<ident>1,  $<ident>3);}
 ;
 
 
-const: NUMERO {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
-| DECIMAL {adcSimb(&tabela, "CONST", yytext, yylineno, "CONSTANTE");}
+const: number  
+| flutuante
 ;
 
-expression: expression aritmetica expression {}
+flutuante: DECIMAL {adcSimb(&tabela, "FLOAT", yytext, yylineno, "CONSTANTE");}
+;
+
+number: NUMERO {adcSimb(&tabela, "INT", yytext, yylineno, "CONSTANTE");}
+;
+
+expression: expression aritmetica expression {TypeIsCorrect($<ident>1,  $<ident>3);}
 | value
 ;
 
@@ -209,7 +203,7 @@ return: RETURN value ';'
 | RETURN ';'
 ;
 
-identificador: ID {printf("%s", $<ident>$); $<ident>$ = strdup($<ident>1); ; strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, yytext, yylineno, tipoSimbolo);}
+identificador: ID { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, "");}
 ;
 
 break: BREAK ';'
