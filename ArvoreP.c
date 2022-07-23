@@ -1,7 +1,3 @@
-//
-// Created by pedro on 11/07/2022.
-//
-
 #include "ArvoreP.h"
 
 void iniciaArvore(NoDaArvore *no){

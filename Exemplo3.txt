@@ -1,29 +1,3 @@
-@Daniel ilaVamosNos(){
-    Fabricio menor, maior, media, altura;
-    Daniel qtd;
-    leiame("%d", qtd);
-    paraZe(Daniel i receba 0; i MenorQue qtd;i receba i + 1){
-        leiame("%d", altura);
-        hipotese(i gemeas 0){
-            menor receba altura;
-            maior receba altura;
-        }
-        hipotese(maior MenorQue altura){
-            maior receba altura;
-        }
-        hipotese(menor MaiorQue altura){
-            menor receba altura;
-        }
-        media receba altura;
-    }
-    media receba media / qtd;
-    seliga("%d",media);
-    seliga("%d",maior);
-    seliga("%d",menor);
-    leiNewton 0;
-}
-=====================================================================@
-
 celokocachoeira:
 wanessa menor -> 1 <- |
 wanessa maior->2<- |

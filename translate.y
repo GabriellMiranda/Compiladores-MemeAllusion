@@ -1,7 +1,7 @@
 %{
     #include "ArvoreP.c"
     #include "ArvoreP.h"
-    #include "y.tab.h"
+    #include "translate2.tab.h"
     #include <stdio.h>
     #include <string.h>
     #include <stdlib.h>
@@ -24,31 +24,31 @@
     char var2[100];
     ArvorePatricia *tabela;
 
-    void TypeIsCorrect(char *var1, char *var2){
+     void TypeIsCorrect(char *var1, char *var2){
     	char *tipo1 = (char*)malloc(100 * sizeof(char));
     	char *tipo2 = (char*)malloc(100 * sizeof(char));
     	buscar(var1,tabela,tipo1);
     	buscar(var2,tabela,tipo2);
     	if(strcmp(tipo1,"") == 0){
     	    printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var1);
-            exit(1);
+            exit(0);
     	}
     	else if(strcmp(tipo2,"") == 0){
             printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var2);
-            exit(1);
+            exit(0);
         }
         else{
             if(strcmp(tipo1,tipo2) != 0){
-                printf("\nErro semântico na linha %d, Os tipos dos termos '%s' e '%s' são incompatíveis\n",yylineno,var1,var2);
-                exit(1);
+                printf("\nErro semântico na linha %d, Os tipos dos termos '%s' e '%s' são incompatíveis\n",yylineno-1,var1,var2);
+                exit(0);
             }
         }
-    }
+     }
 %}
 
 %union {
     char *ident;
-};
+}
 
 
 %token FALSE
@@ -63,22 +63,22 @@
 %token DOUBLE
 %token CHAR
 %token STRUCT
+%token VOID
 
-%token ILAVAMOSNOS
-%token RECEBA
+%token RETURN
+%token ATRIBUICAO
 
 %token MENORQUE
 %left MAIORQUE
-%left GEMEAS
+%left IGUALDADE
 %left NOTIGUAL
 %left MENORIGUALQUE
 %left MAIORIGUALQUE
-%left II
-%left OU
+%left AND
+%left OR
 
 %token CONTINUE
 %token TYPEDEF
-%token RETURN
 %token PRINTF
 %token FOR
 %token WHILE
@@ -91,7 +91,16 @@
 %token SIZEOF
 %token BREAK
 %token STR
-%token LEIAME
+%token SCANF
+%token DECLARARVARIAVEIS
+%token IMPLEMENTARFUNCOES
+%token MAIN
+%token RUN
+%token FIMEXPRESSAO
+%token FIMDECLARACOES
+%token FIMMAIN
+%token FIMDECODIGO
+%token NOMEARSTRUCT
 
 %token DEFAULT
 %left PLUS
@@ -104,74 +113,78 @@
 
 %%
 
-program:  main '(' ')' '{' body return '}' 
-   ;
+program: declaraVariaveis implementaFuncoes MAIN ':' body FIMMAIN;
 
-main: datatype ILAVAMOSNOS
-;
-
-datatype: INT {strcpy(tipo, "INT");}
-| FLOAT {strcpy(tipo, "FLOAT");}
-| CHAR {strcpy(tipo, "CHAR");}
-| DOUBLE {strcpy(tipo, "DOUBLE");}
-;
-
-body: FOR '(' statement ';' condition ';' statement ')' '{' body '}'
-| WHILE '(' condition ')' '{' body '}'
-| IF '(' condition ')' '{' body '}' else
-| statement ';' 
-| body body
-| PRINTF '(' string ')' ';'
-| PRINTF '(' string ',' list_ids ')' ';'
-| LEIAME '(' string ',' list_ids ')' ';'
-| SWITCH '('identificador')' '{'case'}'
-| DO '{' body '}' WHILE'('condition')'';'
-| break
-;
-
-
-case: CASE value ':' body break case  
-| CASE value ':' body break 
-| DEFAULT ':' body  break
-;
-
-else: ELSE '{' body '}'
+body: for ':' body FIMDECLARACOES body
+| while ':' body FIMDECLARACOES body
+| if ':' body FIMDECLARACOES else body
+| SCANF'.'RUN '<' STR listValueVirg '>' body
+| printf body
+| BREAK body
+| statement body
+| identificador ATRIBUICAO value FIMEXPRESSAO body
+| switch case body
+| DO ':' body FIMDECLARACOES while ':' body FIMDECLARACOES body
 |
 ;
+
+statement: identificador ATRIBUICAO expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+| identificador ATRIBUICAO funcao
+| identificador ATRIBUICAO value relop value
+| funcao 
+;
+switch: SWITCH '<' value '>' ':';
+
+case: CASE value ':' body  FIMDECLARACOES case  
+| DEFAULT ':' body  FIMDECLARACOES
+| 
+;
+
+funcao: identificador'.'RUN'<'listValue'>';
+
+printf: PRINTF'.'RUN '<' STR listValueVirg'>' 
+;
+
+for: FOR '<' identificador ATRIBUICAO value ';' condition ';'  identificador ATRIBUICAO expression '>';
+
+
+while: WHILE '<' condition '>';
+
+if: IF '<' condition '>'  ;
 
 condition: value relop value
 | TRUE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 | FALSE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 ;
 
-statement: datatype identificador RECEBA value {TypeIsCorrect($<ident>1,  $<ident>3);}
-| identificador RECEBA expression {TypeIsCorrect($<ident>1,  $<ident>3);}
-| identificador relop expression {TypeIsCorrect($<ident>1,  $<ident>3);}
-| datatype list_ids 
+value: const
+| STR
+| identificador acessarVetOuStructLoop
+;
+
+else: ELSE ':' body FIMDECLARACOES
+|
+;
+
+const: DECIMAL {adcSimb(&tabela, "FLOAT", yytext, yylineno, "CONSTANTE");}
+| NUMERO {adcSimb(&tabela, "INT", yytext, yylineno, "CONSTANTE");}
 ;
 
 
-list_ids:    
-| list_ids',' list_ids  
-| list_ids',' identificador
-| identificador
-| identificador'('identificador')'
-| identificador RECEBA identificador {TypeIsCorrect($<ident>1,  $<ident>3);}
-| identificador RECEBA const {TypeIsCorrect($<ident>1,  $<ident>3);}
+
+relop: OR {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| AND {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MAIORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MENORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| NOTIGUAL {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| IGUALDADE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MAIORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+| MENORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
 ;
 
 
-const: number  
-| flutuante
-;
 
-flutuante: DECIMAL {adcSimb(&tabela, "FLOAT", yytext, yylineno, "CONSTANTE");}
-;
-
-number: NUMERO {adcSimb(&tabela, "INT", yytext, yylineno, "CONSTANTE");}
-;
-
-expression: expression aritmetica expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+expression: value aritmetica expression {TypeIsCorrect($<ident>1,  $<ident>3);}
 | value
 ;
 
@@ -182,31 +195,61 @@ aritmetica: PLUS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");
 | EXP {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
 ;
 
-relop: OU {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| II {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| MAIORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| MENORIGUALQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| NOTIGUAL {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| GEMEAS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| MAIORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-| MENORQUE {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
+
+
+declaraVariaveis: DECLARARVARIAVEIS ':' declararVar  ;
+
+declararVar: datatype identificador '|' declararVar
+| STRUCT ':' declararVar  NOMEARSTRUCT identificador declararVar
+| vetor '|' declararVar
+|
 ;
 
-value: const
-| list_ids
-| string
+vetor: datatype identificador NOMEARSTRUCT value FIMDECLARACOES ;
+
+implementaFuncoes: IMPLEMENTARFUNCOES ':' declararFun ;
+
+declararFun: '<'datatype'>' identificador '<'listDeclVar'>' ':' body return declararFun
+|
 ;
 
-string: STR {adcSimb(&tabela, "STRING", yytext, yylineno, "VETOR");}
+listDeclVar: identificador MINUS datatype listDeclVarVirg
+|  
+;
 
-return: RETURN value ';' 
-| RETURN ';'
+listDeclVarVirg: ',' listDeclVar
+|
+;
+
+listValue: value listValueVirg
+|  
+;
+
+listValueVirg: ',' listValue
+|
+;
+
+acessarVetOuStruct: identificador acessarVetOuStructLoop
+| const acessarVetOuStructLoop
+;
+
+acessarVetOuStructLoop: '.' acessarVetOuStruct
+|
+;
+
+return: RETURN value
+|
+;
+
+datatype: INT {strcpy(tipo, "INT");}
+| FLOAT {strcpy(tipo, "FLOAT");}
+| CHAR {strcpy(tipo, "CHAR");}
+| DOUBLE {strcpy(tipo, "DOUBLE");}
+| VOID   {strcpy(tipo,"VOID");}
+| STRUCT {strcpy(tipo,"STRUCT");} 
 ;
 
 identificador: ID { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, "");}
-;
-
-break: BREAK ';'
 ;
 
 %%
@@ -214,7 +257,7 @@ break: BREAK ';'
 
 void yyerror(char *s) {
     printf("\n\nErro sintático próximo à linha %d\n", yylineno);
-    printf("Possivel erro sintatico antes ou depois do termo --> %s \n\n", yytext);
+    printf("Possivel erro sintatico próximo ao termo --> %s \n\n", yytext);
     qtdErros++;
 }
 

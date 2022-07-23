@@ -1,22 +1,3 @@
-@Thais ilaVamosNos(){
-    Daniel valor;
-    faz{
-        seliga("Pedor");
-    }uaiou(mentira);
-    trocar(opcao){
-        cazemito 1:
-            seliga("oi");
-            parecomisso;
-        cazemito 2:
-            seliga("oi");
-            parecomisso;
-        padraozinho:
-            seliga("oi");
-            parecomisso;
-    }
-    leiNewton 0;
-}
-========================================================@
 celokocachoeira:
 natashacaldeirao valor|
 

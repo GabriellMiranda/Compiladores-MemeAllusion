@@ -1,7 +1,3 @@
-//
-// Created by pedro on 11/07/2022.
-//
-
 #ifndef TPCOMPILADORES_ARVOREP_H
 #define TPCOMPILADORES_ARVOREP_H
 

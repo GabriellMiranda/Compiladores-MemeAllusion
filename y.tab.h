@@ -65,19 +65,19 @@ extern int yydebug;
     DOUBLE = 266,                  /* DOUBLE  */
     CHAR = 267,                    /* CHAR  */
     STRUCT = 268,                  /* STRUCT  */
-    ILAVAMOSNOS = 269,             /* ILAVAMOSNOS  */
-    RECEBA = 270,                  /* RECEBA  */
-    MENORQUE = 271,                /* MENORQUE  */
-    MAIORQUE = 272,                /* MAIORQUE  */
-    GEMEAS = 273,                  /* GEMEAS  */
-    NOTIGUAL = 274,                /* NOTIGUAL  */
-    MENORIGUALQUE = 275,           /* MENORIGUALQUE  */
-    MAIORIGUALQUE = 276,           /* MAIORIGUALQUE  */
-    II = 277,                      /* II  */
-    OU = 278,                      /* OU  */
-    CONTINUE = 279,                /* CONTINUE  */
-    TYPEDEF = 280,                 /* TYPEDEF  */
-    RETURN = 281,                  /* RETURN  */
+    VOID = 269,                    /* VOID  */
+    RETURN = 270,                  /* RETURN  */
+    ATRIBUICAO = 271,              /* ATRIBUICAO  */
+    MENORQUE = 272,                /* MENORQUE  */
+    MAIORQUE = 273,                /* MAIORQUE  */
+    IGUALDADE = 274,               /* IGUALDADE  */
+    NOTIGUAL = 275,                /* NOTIGUAL  */
+    MENORIGUALQUE = 276,           /* MENORIGUALQUE  */
+    MAIORIGUALQUE = 277,           /* MAIORIGUALQUE  */
+    AND = 278,                     /* AND  */
+    OR = 279,                      /* OR  */
+    CONTINUE = 280,                /* CONTINUE  */
+    TYPEDEF = 281,                 /* TYPEDEF  */
     PRINTF = 282,                  /* PRINTF  */
     FOR = 283,                     /* FOR  */
     WHILE = 284,                   /* WHILE  */
@@ -90,14 +90,23 @@ extern int yydebug;
     SIZEOF = 291,                  /* SIZEOF  */
     BREAK = 292,                   /* BREAK  */
     STR = 293,                     /* STR  */
-    LEIAME = 294,                  /* LEIAME  */
-    DEFAULT = 295,                 /* DEFAULT  */
-    PLUS = 296,                    /* PLUS  */
-    MINUS = 297,                   /* MINUS  */
-    DIV = 298,                     /* DIV  */
-    MULT = 299,                    /* MULT  */
-    EXP = 300,                     /* EXP  */
-    DO = 301                       /* DO  */
+    SCANF = 294,                   /* SCANF  */
+    DECLARARVARIAVEIS = 295,       /* DECLARARVARIAVEIS  */
+    IMPLEMENTARFUNCOES = 296,      /* IMPLEMENTARFUNCOES  */
+    MAIN = 297,                    /* MAIN  */
+    RUN = 298,                     /* RUN  */
+    FIMEXPRESSAO = 299,            /* FIMEXPRESSAO  */
+    FIMDECLARACOES = 300,          /* FIMDECLARACOES  */
+    FIMMAIN = 301,                 /* FIMMAIN  */
+    FIMDECODIGO = 302,             /* FIMDECODIGO  */
+    NOMEARSTRUCT = 303,            /* NOMEARSTRUCT  */
+    DEFAULT = 304,                 /* DEFAULT  */
+    PLUS = 305,                    /* PLUS  */
+    MINUS = 306,                   /* MINUS  */
+    DIV = 307,                     /* DIV  */
+    MULT = 308,                    /* MULT  */
+    EXP = 309,                     /* EXP  */
+    DO = 310                       /* DO  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -117,19 +126,19 @@ extern int yydebug;
 #define DOUBLE 266
 #define CHAR 267
 #define STRUCT 268
-#define ILAVAMOSNOS 269
-#define RECEBA 270
-#define MENORQUE 271
-#define MAIORQUE 272
-#define GEMEAS 273
-#define NOTIGUAL 274
-#define MENORIGUALQUE 275
-#define MAIORIGUALQUE 276
-#define II 277
-#define OU 278
-#define CONTINUE 279
-#define TYPEDEF 280
-#define RETURN 281
+#define VOID 269
+#define RETURN 270
+#define ATRIBUICAO 271
+#define MENORQUE 272
+#define MAIORQUE 273
+#define IGUALDADE 274
+#define NOTIGUAL 275
+#define MENORIGUALQUE 276
+#define MAIORIGUALQUE 277
+#define AND 278
+#define OR 279
+#define CONTINUE 280
+#define TYPEDEF 281
 #define PRINTF 282
 #define FOR 283
 #define WHILE 284
@@ -142,14 +151,23 @@ extern int yydebug;
 #define SIZEOF 291
 #define BREAK 292
 #define STR 293
-#define LEIAME 294
-#define DEFAULT 295
-#define PLUS 296
-#define MINUS 297
-#define DIV 298
-#define MULT 299
-#define EXP 300
-#define DO 301
+#define SCANF 294
+#define DECLARARVARIAVEIS 295
+#define IMPLEMENTARFUNCOES 296
+#define MAIN 297
+#define RUN 298
+#define FIMEXPRESSAO 299
+#define FIMDECLARACOES 300
+#define FIMMAIN 301
+#define FIMDECODIGO 302
+#define NOMEARSTRUCT 303
+#define DEFAULT 304
+#define PLUS 305
+#define MINUS 306
+#define DIV 307
+#define MULT 308
+#define EXP 309
+#define DO 310
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -159,7 +177,7 @@ union YYSTYPE
 
     char *ident;
 
-#line 163 "y.tab.h"
+#line 181 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
