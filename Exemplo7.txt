@@ -1,0 +1,100 @@
+@Daniel ilaVamosNos () { 
+    Fabricio a;
+    Thais b receba -12.2;
+    Nacif c receba 1425;
+    Daniel d;
+    Thais e receba "Str";
+    d receba -123;
+    a receba 1 + 2 - 3 * 4 ** 5/6;
+    hipotese(mentira){
+        Nacif temp receba "temp";
+    }quediafoisso{
+        d receba 23;
+    }
+    hipotese(realmente){
+        Nacif temp receba "temp";
+    }quediafoisso{
+        d receba 23;
+    }
+.
+    hipotese(10 MenorQue 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 MaiorQue 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 gemeas 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 notIgual 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 MenorIgualQue 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 MaiorIgualQue 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 ii 20){
+        Nacif temp receba "temp";
+    }
+    hipotese(10 ou 20){
+        Nacif temp receba "temp";
+    }
+    leiNewton 1 ;   
+}
+==================================================================@
+celokocachoeira:
+wanessa a|
+cazemito b|
+cazemito e|
+natashacaldeirao d|
+marinho c |
+marinho temp|
+
+querocafeee:
+
+allude:
+    b receba -12.2
+    c receba 1425
+    e receba "Str"
+    d receba -123
+    a receba 1 + 2 - 3 * 4 ** 5/6
+    
+    masoqueeisso<opaitaoff>:
+        temp receba "temp"
+    <- quediafoiisso:
+        d receba 23
+        <-
+    masoqueeisso<opaitaon>:
+        temp receba "temp"
+        <-quediafoiisso:
+            d receba 23
+            <-
+
+    masoqueeisso<10 mopaz 20>:
+        temp receba "temp"
+        <-
+
+    masoqueeisso<10 umpoucomais 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 dorime 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 deixadeserfalsa 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 pioral 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 maioral 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 ihmane 20>:
+        temp receba "temp"
+    <-
+    masoqueeisso<10 tapassada 20>:
+        temp receba "temp"
+    <-
+:) 

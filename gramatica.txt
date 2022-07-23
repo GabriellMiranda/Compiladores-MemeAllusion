@@ -1,0 +1,24 @@
+celococachoeira: // declara variaveis
+marinho var |
+tipo |
+<- //fim da declaracao
+
+querocafeee: // declara funcoes
+ <TIPO>  nomefuncao<a - tipo,b - tipo,c - tipo>:
+    expressao |
+<TIPO>  nomefuncao<a - tipo,b - tipo,c - tipo>:
+    expressao |
+<- //fim da declaracao
+
+
+memear allude <> : // analogo a main do c
+ var receba b :|
+ expre :|
+ expr :| // fim de expressoes tem :|
+ memear nomefuncao<> :| //sempre que usar uma funcao utilziar memear
+ paraze < i ; i LEXEMADECONDICAO 10; i++>:
+    .... 
+    <-
+
+
+ :)

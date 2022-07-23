@@ -1,0 +1,13 @@
+celokocachoeira:
+natashacaldeirao valor1 |
+natashacaldeirao i |
+
+querocafeee:
+
+allude :
+   valor1 receba 0
+   paraze <i receba 0 ; i mopaz 10 ; i receba i + 1 > :
+      valor1 receba valor1+i
+   <-
+   seligaein.memear<"%d",valor1>
+:)

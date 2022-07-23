@@ -1,0 +1,55 @@
+@Daniel ilaVamosNos(){
+    Fabricio menor, maior, media, altura;
+    Daniel qtd;
+    leiame("%d", qtd);
+    paraZe(Daniel i receba 0; i MenorQue qtd;i receba i + 1){
+        leiame("%d", altura);
+        hipotese(i gemeas 0){
+            menor receba altura;
+            maior receba altura;
+        }
+        hipotese(maior MenorQue altura){
+            maior receba altura;
+        }
+        hipotese(menor MaiorQue altura){
+            menor receba altura;
+        }
+        media receba altura;
+    }
+    media receba media / qtd;
+    seliga("%d",media);
+    seliga("%d",maior);
+    seliga("%d",menor);
+    leiNewton 0;
+}
+=====================================================================@
+
+celokocachoeira:
+wanessa menor -> 1 <- |
+wanessa maior->2<- |
+wanessa media->3<- |
+wanessa altura->4<- |
+natashacaldeirao qtd->i<- |
+
+querocafeee: 
+
+allude:
+
+    soprusmenino.memear<"%d",altura>
+    masoqueeisso<i dorime 0>:
+        menor receba altura
+        maior receba altura
+    <-
+    masoqueeisso<maior mopaz altura>:
+        maior receba altura
+    <-
+    masoqueeisso<menor umpoucomais altura>:
+        maior receba altura
+    <-
+    media receba altura
+    media receba media / qtd
+    seligaein.memear<"%d",media>
+    seligaein.memear<"%d",maior>
+    seligaein.memear<"%d",menor>
+:)
+

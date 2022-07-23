@@ -1,0 +1,48 @@
+celokocachoeira:
+juliete  :
+  marinho var4 |
+  wanessa var6 |
+-> nomeEstrutura 
+marinho var |
+wanessa var2 |
+cazemito var3|
+irineu var7 |
+
+querocafeee: 
+ <juliete>  nomefuncao<a - wanessa,b - cazemito,c - irineu>:
+    acertoumizeravi
+    
+<marinho>  nomefuncao<a - juliete,b - marinho>:
+    
+<wanessa>  nomefuncao<a - marinho>:
+    acertoumizeravi
+<cazemito>  nomefuncao<a - juliete>:
+    acertoumizeravi
+<irineu>  nomefuncao<>:
+
+
+allude: 
+    paraze < i receba 0 ; i mopaz 10 ; i receba i + 1 > :
+      <-
+    uaiso < var1 dorime var2 > :
+            <-
+    masoqueeisso <10 maioral 20>:
+        var1 receba 1
+        var2 receba var3
+        <-
+  
+    seligaein.memear<"string">
+    seligaein.memear<"string",var1,var2>
+    soprusmenino.memear<" string ",var1,var2>
+
+    
+    var4 receba var5
+
+    reage <1>:
+        botaumcropped 0 :
+            parecomisso <-
+        botaumcropped 1 :
+            i receba i + 1<-
+        padraozinho :
+            parecomisso<-
+ :)

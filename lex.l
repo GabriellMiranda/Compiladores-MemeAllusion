@@ -1,7 +1,7 @@
 %{
   #include <stdio.h>
   #include <string.h>
-  #include "y.tab.h"
+  #include "translate2.tab.h"
   void yyerror_lex(char *s);
 
 %}
@@ -19,33 +19,11 @@ digito [0-9]
 numero ((-){digito}+|(\+){digito}+|{digito}+)
 letra [a-zA-Z]
 decimal ({numero})(\.{digito}+)?(E[+]?{digito}+)?
+comentario  [@]([^@]|\n)*[@]
+ponteiro _x9{letra}+
 
-comentario  [//]([^@]|\n)*[@]
 
-break "parecomisso"
-typedef   "tipoIsso"
-continue  "toBeContinua"
-printf "seliga"
-for "paraZe"
-while "uaiou"
-if "hipotese"
-else "quediafoisso"
-case "cazemito"
-switch "trocar"
-goto "vai"
-return "leiNewton"
-do "faz"
-erro [.]|[^]|[~]|[$]
-default "padraozinho"
 
-float "Thais"
-double "Fabricio"
-char "Nacif"
-int "Daniel" 
-
-struct "fusao"
-sizeof "saizonof"
-malloc "alok"
 id {letra}({letra}|{digito})*
 /*regras*/
 %%
@@ -53,13 +31,15 @@ id {letra}({letra}|{digito})*
 {ws}              {printf("%s", yytext);}
 \n                {printf("\n%d\t", yylineno);}
 
-{comentario}\n      { }
+{comentario}      { printf("%s",yytext);}
 
-{int}             {printf("%s", yytext); return(INT);}//OK
-{float}           {printf("%s", yytext); return(FLOAT);}//OK
-{double}          {printf("%s", yytext); return(DOUBLE);}//OK
-{char}            {printf("%s", yytext); return(CHAR);}//OK
-{struct}          {printf("%s", yytext); return(STRUCT);}
+
+"natashacaldeirao"             {printf("%s", yytext); return(INT);}//OK
+"cazemito"           {printf("%s", yytext); return(FLOAT);}//OK
+"wanessa"         {printf("%s", yytext); return(DOUBLE);}//OK
+"marinho"            {printf("%s", yytext); return(CHAR);}//OK
+"juliete"          {printf("%s", yytext); return(STRUCT);}
+"irineu"            {printf("%s", yytext); return(VOID);}
 
 "+"                {printf("%s", yytext); return(PLUS);}//OK
 "-"                {printf("%s", yytext); return(MINUS);}//OK
@@ -67,53 +47,61 @@ id {letra}({letra}|{digito})*
 "/"                {printf("%s", yytext); return(DIV);}//OK
 "**"               {printf("%s", yytext); return(EXP);}//OK
 
-"realmente"       {printf("%s", yytext); return(FALSE);}//OK
-"mentira"         {printf("%s", yytext); return(TRUE);}//OK
+"opaitaon"       {printf("%s", yytext); return(TRUE);}//OK
+"opaitaoff"         {printf("%s", yytext); return(FALSE);}//OK
 
 
-{continue}        {printf("%s", yytext); return(CONTINUE);}
-{typedef}         {printf("%s", yytext); return(TYPEDEF);}
+"tobecontinua"        {printf("%s", yytext); return(CONTINUE);}
+"tipoisso"         {printf("%s", yytext); return(TYPEDEF);}
+"celokocachoeira"  {printf("%s", yytext); return(DECLARARVARIAVEIS);}
+"memear"         {printf("%s", yytext); return(RUN);}
+"querocafeee"  {printf("%s", yytext); return(IMPLEMENTARFUNCOES);}
+"soprusmenino"          {printf("%s", yytext); return(SCANF);}
+"receba"          {printf("%s", yytext); return(ATRIBUICAO);}//OK
 
-"leiame"          {printf("%s", yytext); return(LEIAME);}
-"ilaVamosNos"     {printf("%s", yytext); return(ILAVAMOSNOS);}//OK
-"receba"          {printf("%s", yytext); return(RECEBA);}//OK
-"MenorQue"        {printf("%s", yytext); return(MENORQUE);}//OK
-"MaiorQue"        {printf("%s", yytext); return(MAIORQUE);}//OK
-"gemeas"          {printf("%s", yytext); return(GEMEAS);}//OK
-"notIgual"        {printf("%s", yytext); return(NOTIGUAL);}//OK
-"MenorIgualQue"   {printf("%s", yytext); return(MENORIGUALQUE);}//OK
-"MaiorIgualQue"   {printf("%s", yytext); return(MAIORIGUALQUE);}//OK
-"ii"              {printf("%s", yytext); return(II);}//OK
-"ou"              {printf("%s", yytext); return(OU);}//OK
+"mopaz"        {printf("%s", yytext); return(MENORQUE);}//OK 
+"umpoucomais"        {printf("%s", yytext); return(MAIORQUE);}//OK
+"dorime"          {printf("%s", yytext); return(IGUALDADE);}//OK
+"deixadeserfalsa"        {printf("%s", yytext); return(NOTIGUAL);}//OK
+"pioral"   {printf("%s", yytext); return(MENORIGUALQUE);}//OK
+"maioral"   {printf("%s", yytext); return(MAIORIGUALQUE);}//OK
+"ihmane"              {printf("%s", yytext); return(AND);}//OK
+"tapassada"              {printf("%s", yytext); return(OR);}//OK
 
-{return}          {printf("%s", yytext); return(RETURN);}//OK
-{default}         {printf("%s", yytext); return(DEFAULT);}//OK
-{printf}          {printf("%s", yytext); return(PRINTF);}
-{for}             {printf("%s", yytext); return(FOR);}
-{while}           {printf("%s", yytext); return(WHILE);}
-{if}              {printf("%s", yytext); return(IF);}//OK
-{else}            {printf("%s", yytext); return(ELSE);}//OK
-{case}            {printf("%s", yytext); return(CASE);}
-{switch}          {printf("%s", yytext); return(SWITCH);}
-{goto}            {printf("%s", yytext); return(GOTO);}
-{malloc}	        {printf("%s", yytext); return(MALLOC);}
-{sizeof}          {printf("%s", yytext); return(SIZEOF);}
-{break}		        {printf("%s", yytext); return(BREAK);}
-{do}              {printf("%s", yytext); return(DO);}
+"acertoumizeravi"          {printf("%s", yytext); return(RETURN);}//OK
+"padraozinho"         {printf("%s", yytext); return(DEFAULT);}//OK
+"seligaein"          {printf("%s", yytext); return(PRINTF);}
+"paraze"             {printf("%s", yytext); return(FOR);}
+"uaiso"           {printf("%s", yytext); return(WHILE);}
+"masoqueeisso"              {printf("%s", yytext); return(IF);}//OK
+"quediafoiisso"            {printf("%s", yytext); return(ELSE);}//OK
+"botaumcropped"            {printf("%s", yytext); return(CASE);}
+"reage"          {printf("%s", yytext); return(SWITCH);}
+"aloka"	        {printf("%s", yytext); return(MALLOC);}
+"mariacururu"          {printf("%s", yytext); return(SIZEOF);}
+"parecomisso"	        {printf("%s", yytext); return(BREAK);}
+"ameno"              {printf("%s", yytext); return(DO);}
+"allude"              {printf("%s", yytext); return(MAIN);}
+
+":)"                {printf("%s", yytext); return(FIMMAIN);}
+";("                {printf("%s", yytext); return(FIMDECODIGO);}
+":|"                {printf("%s", yytext);return(FIMEXPRESSAO);} 
+"<-"                {printf("%s", yytext);return(FIMDECLARACOES);}
+"->"                {printf("%s", yytext);return(NOMEARSTRUCT);}
+"|"                 {printf("%s", yytext); return('|');}
+":"                 {printf("%s", yytext); return(':');}
+"<"                 {printf("%s", yytext); return('<');}
+">"                 {printf("%s", yytext); return('>');}
+";"                 {printf("%s", yytext); return(';');}
+","                 {printf("%s", yytext); return(',');}
+"."                 {printf("%s", yytext); return('.');}
+
 {id}              {printf("%s", yytext); yylval.ident = strdup(yytext); return (ID);}//OK
 {numero}          {printf("%s", yytext); yylval.ident = strdup(yytext); return(NUMERO);}//OK
 {decimal}         {printf("%s", yytext); yylval.ident = strdup(yytext); return(DECIMAL);}//OK
-{}
-"("                {printf("%s", yytext); return('(');}//OK
-")"                {printf("%s", yytext); return(')');}//OK
-":"                {printf("%s", yytext); return(':');}
-";"                {printf("%s", yytext); return(';');}//OK
-","                {printf("%s", yytext); return(',');}
-"{"                {printf("%s", yytext); return('{');}//OK
-"}"                {printf("%s", yytext); return('}');}//OK
-
-
+{ponteiro}        {printf("%s",yytext);}
 ["].*["]           {printf("%s", yytext); return(STR);}//OK
+[']{letra}['']    {printf("%s", yytext); return(CHAR);}//OK
 
 .                  {yyerror_lex(yytext);}
 %%
@@ -126,3 +114,8 @@ void yyerror_lex(char *s) {
 int yywarp(void){
   return 1;
 }
+
+// int main(void){
+//   yylex();
+//   return 0;
+// }
