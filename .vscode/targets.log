@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 29 11:53:21 2022
+# Make data base, printed on Fri Jul 29 15:51:49 2022
 
 # Variables
 
@@ -89,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 66912
+VSCODE_PID = 86982
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -191,7 +191,7 @@ SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
 MANAGERPID = 1922
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 66862
+GIO_LAUNCHED_DESKTOP_FILE_PID = 86932
 # environment
 _ = /snap/code/102/usr/share/code/code
 # environment
@@ -278,6 +278,7 @@ instalarYacc:
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -295,7 +296,6 @@ all:
 # automatic
 # < := 
 # automatic
- 
 # + := 
 # automatic
 # % := 
@@ -346,6 +346,6 @@ instalarLex:
 # strcache performance: lookups = 46 / hit rate = 21%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=0/46=0%
-# Finished Make data base on Fri Jul 29 11:53:21 2022
+# Finished Make data base on Fri Jul 29 15:51:49 2022
 
  

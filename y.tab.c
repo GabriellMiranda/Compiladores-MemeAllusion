@@ -1494,218 +1494,224 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
+  case 10: /* body: identificador ATRIBUICAO value FIMEXPRESSAO body  */
+#line 125 "translate.y"
+                                                   {TypeIsCorrect((yyvsp[-4].ident),  (yyvsp[-2].ident));}
+#line 1501 "y.tab.c"
+    break;
+
   case 14: /* statement: identificador ATRIBUICAO expression  */
 #line 131 "translate.y"
                                                {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1501 "y.tab.c"
+#line 1507 "y.tab.c"
     break;
 
   case 15: /* statement: identificador ATRIBUICAO funcao  */
 #line 132 "translate.y"
                                   {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1507 "y.tab.c"
+#line 1513 "y.tab.c"
     break;
 
   case 16: /* statement: identificador ATRIBUICAO value relop value  */
 #line 133 "translate.y"
                                              {TypeIsCorrect((yyvsp[-4].ident),  (yyvsp[-2].ident)); TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident)); }
-#line 1513 "y.tab.c"
+#line 1519 "y.tab.c"
     break;
 
   case 24: /* strprint: STR  */
 #line 149 "translate.y"
               {adcSimb(&tabela, "STRING", yytext, yylineno, "CONSTANTE");}
-#line 1519 "y.tab.c"
+#line 1525 "y.tab.c"
     break;
 
   case 26: /* forpate1: identificador ATRIBUICAO const  */
 #line 154 "translate.y"
                                          {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1525 "y.tab.c"
+#line 1531 "y.tab.c"
     break;
 
   case 27: /* forpate2: identificador ATRIBUICAO expression  */
 #line 157 "translate.y"
                                               {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1531 "y.tab.c"
+#line 1537 "y.tab.c"
     break;
 
   case 30: /* condition: value relop value  */
 #line 164 "translate.y"
                              {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1537 "y.tab.c"
+#line 1543 "y.tab.c"
     break;
 
   case 31: /* condition: TRUE  */
 #line 165 "translate.y"
        {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
-#line 1543 "y.tab.c"
+#line 1549 "y.tab.c"
     break;
 
   case 32: /* condition: FALSE  */
 #line 166 "translate.y"
         {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
-#line 1549 "y.tab.c"
+#line 1555 "y.tab.c"
     break;
 
   case 34: /* value: STR  */
 #line 170 "translate.y"
       {adcSimb(&tabela, "STRING", yytext, yylineno, "CONSTANTE");}
-#line 1555 "y.tab.c"
+#line 1561 "y.tab.c"
     break;
 
   case 38: /* const: DECIMAL  */
 #line 178 "translate.y"
                {adcSimb(&tabela, "FLOAT", yytext, yylineno, "CONSTANTE");}
-#line 1561 "y.tab.c"
+#line 1567 "y.tab.c"
     break;
 
   case 39: /* const: NUMERO  */
 #line 179 "translate.y"
          {adcSimb(&tabela, "INT", yytext, yylineno, "CONSTANTE");}
-#line 1567 "y.tab.c"
+#line 1573 "y.tab.c"
     break;
 
   case 40: /* relop: OR  */
 #line 184 "translate.y"
           {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1573 "y.tab.c"
+#line 1579 "y.tab.c"
     break;
 
   case 41: /* relop: AND  */
 #line 185 "translate.y"
       {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1579 "y.tab.c"
+#line 1585 "y.tab.c"
     break;
 
   case 42: /* relop: MAIORIGUALQUE  */
 #line 186 "translate.y"
                 {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1585 "y.tab.c"
+#line 1591 "y.tab.c"
     break;
 
   case 43: /* relop: MENORIGUALQUE  */
 #line 187 "translate.y"
                 {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1591 "y.tab.c"
+#line 1597 "y.tab.c"
     break;
 
   case 44: /* relop: NOTIGUAL  */
 #line 188 "translate.y"
            {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1597 "y.tab.c"
+#line 1603 "y.tab.c"
     break;
 
   case 45: /* relop: IGUALDADE  */
 #line 189 "translate.y"
             {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1603 "y.tab.c"
+#line 1609 "y.tab.c"
     break;
 
   case 46: /* relop: MAIORQUE  */
 #line 190 "translate.y"
            {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1609 "y.tab.c"
+#line 1615 "y.tab.c"
     break;
 
   case 47: /* relop: MENORQUE  */
 #line 191 "translate.y"
            {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
-#line 1615 "y.tab.c"
+#line 1621 "y.tab.c"
     break;
 
   case 48: /* expression: value aritmetica expression  */
 #line 196 "translate.y"
                                         {TypeIsCorrect((yyvsp[-2].ident),  (yyvsp[0].ident));}
-#line 1621 "y.tab.c"
+#line 1627 "y.tab.c"
     break;
 
   case 50: /* aritmetica: PLUS  */
 #line 200 "translate.y"
                  {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-#line 1627 "y.tab.c"
+#line 1633 "y.tab.c"
     break;
 
   case 51: /* aritmetica: MINUS  */
 #line 201 "translate.y"
         {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-#line 1633 "y.tab.c"
+#line 1639 "y.tab.c"
     break;
 
   case 52: /* aritmetica: MULT  */
 #line 202 "translate.y"
        {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-#line 1639 "y.tab.c"
+#line 1645 "y.tab.c"
     break;
 
   case 53: /* aritmetica: DIV  */
 #line 203 "translate.y"
       {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-#line 1645 "y.tab.c"
+#line 1651 "y.tab.c"
     break;
 
   case 54: /* aritmetica: EXP  */
 #line 204 "translate.y"
       {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-#line 1651 "y.tab.c"
+#line 1657 "y.tab.c"
     break;
 
   case 64: /* tipofunc: ID  */
 #line 226 "translate.y"
               { (yyval.ident) = strdup((yyvsp[0].ident)); strcpy(tipoSimbolo, "FUNCAO"); adcSimb(&tabela, tipo, (yyvsp[0].ident), yylineno, tipoSimbolo);strcpy(tipo, "");}
-#line 1657 "y.tab.c"
+#line 1663 "y.tab.c"
     break;
 
   case 69: /* listValue: value listValueVirg  */
 #line 238 "translate.y"
                                {TypeIsCorrect((yyvsp[-1].ident), (yyvsp[-1].ident));}
-#line 1663 "y.tab.c"
+#line 1669 "y.tab.c"
     break;
 
   case 79: /* datatype: INT  */
 #line 258 "translate.y"
               {strcpy(tipo, "INT");}
-#line 1669 "y.tab.c"
+#line 1675 "y.tab.c"
     break;
 
   case 80: /* datatype: FLOAT  */
 #line 259 "translate.y"
         {strcpy(tipo, "FLOAT");}
-#line 1675 "y.tab.c"
+#line 1681 "y.tab.c"
     break;
 
   case 81: /* datatype: CHAR  */
 #line 260 "translate.y"
        {strcpy(tipo, "CHAR");}
-#line 1681 "y.tab.c"
+#line 1687 "y.tab.c"
     break;
 
   case 82: /* datatype: DOUBLE  */
 #line 261 "translate.y"
          {strcpy(tipo, "DOUBLE");}
-#line 1687 "y.tab.c"
+#line 1693 "y.tab.c"
     break;
 
   case 83: /* datatype: VOID  */
 #line 262 "translate.y"
          {strcpy(tipo,"VOID");}
-#line 1693 "y.tab.c"
+#line 1699 "y.tab.c"
     break;
 
   case 84: /* datatype: STRUCT  */
 #line 263 "translate.y"
          {strcpy(tipo,"STRUCT");}
-#line 1699 "y.tab.c"
+#line 1705 "y.tab.c"
     break;
 
   case 85: /* identificador: ID  */
 #line 266 "translate.y"
                   { (yyval.ident) = strdup((yyvsp[0].ident)); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, (yyvsp[0].ident), yylineno, tipoSimbolo);strcpy(tipo, "");}
-#line 1705 "y.tab.c"
+#line 1711 "y.tab.c"
     break;
 
 
-#line 1709 "y.tab.c"
+#line 1715 "y.tab.c"
 
       default: break;
     }

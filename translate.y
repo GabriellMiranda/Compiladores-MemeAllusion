@@ -122,7 +122,7 @@ body: for ':' body FIMDECLARACOES body
 | printf body
 | BREAK body
 | statement body
-| identificador ATRIBUICAO value FIMEXPRESSAO body /* isso pode derivar em statement abaixo?*/
+| identificador ATRIBUICAO value FIMEXPRESSAO body {TypeIsCorrect($<ident>1,  $<ident>3);}
 | switch case body
 | DO ':' body FIMDECLARACOES while ':' body FIMDECLARACOES body
 |
