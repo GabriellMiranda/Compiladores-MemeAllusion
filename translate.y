@@ -122,17 +122,18 @@ body: for ':' body FIMDECLARACOES body
 | printf body
 | BREAK body
 | statement body
-| identificador ATRIBUICAO value FIMEXPRESSAO body
+| identificador ATRIBUICAO value FIMEXPRESSAO body /* isso pode derivar em statement abaixo?*/
 | switch case body
 | DO ':' body FIMDECLARACOES while ':' body FIMDECLARACOES body
 |
 ;
 
 statement: identificador ATRIBUICAO expression {TypeIsCorrect($<ident>1,  $<ident>3);}
-| identificador ATRIBUICAO funcao
-| identificador ATRIBUICAO value relop value
+| identificador ATRIBUICAO funcao {TypeIsCorrect($<ident>1,  $<ident>3);}
+| identificador ATRIBUICAO value relop value {TypeIsCorrect($<ident>1,  $<ident>3); TypeIsCorrect($<ident>3,  $<ident>5); }
 | funcao 
 ;
+
 switch: SWITCH '<' value '>' ':';
 
 case: CASE value ':' body  FIMDECLARACOES case  
@@ -140,26 +141,34 @@ case: CASE value ':' body  FIMDECLARACOES case
 | 
 ;
 
-funcao: identificador'.'RUN'<'listValue'>';
+funcao: identificador'.'RUN'<'listValue'>'; 
 
-printf: PRINTF'.'RUN '<' STR listValueVirg'>' 
+printf: PRINTF'.'RUN '<' strprint listValueVirg'>' 
 ;
 
-for: FOR '<' identificador ATRIBUICAO value ';' condition ';'  identificador ATRIBUICAO expression '>';
+strprint: STR {adcSimb(&tabela, "STRING", yytext, yylineno, "CONSTANTE");}
+;
 
+for: FOR '<' forpate1 ';' condition ';' forpate2 '>'; 
+
+forpate1: identificador ATRIBUICAO const {TypeIsCorrect($<ident>1,  $<ident>3);}
+;
+
+forpate2: identificador ATRIBUICAO expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+;
 
 while: WHILE '<' condition '>';
 
 if: IF '<' condition '>'  ;
 
-condition: value relop value
+condition: value relop value {TypeIsCorrect($<ident>1,  $<ident>3);}
 | TRUE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 | FALSE {adcSimb(&tabela, "INT", yytext, yylineno, "BOOLEAN");}
 ;
 
 value: const
-| STR
-| identificador acessarVetOuStructLoop
+| STR {adcSimb(&tabela, "STRING", yytext, yylineno, "CONSTANTE");}
+| identificador acessarVetOuStructLoop 
 ;
 
 else: ELSE ':' body FIMDECLARACOES
@@ -209,10 +218,15 @@ vetor: datatype identificador NOMEARSTRUCT value FIMDECLARACOES ;
 
 implementaFuncoes: IMPLEMENTARFUNCOES ':' declararFun ;
 
-declararFun: '<'datatype'>' identificador '<'listDeclVar'>' ':' body return declararFun
+declararFun: '<'datatype'>' tipofunc '<'listDeclVar'>' ':' body return declararFun 
 |
 ;
 
+/* aqui ele vai receber o tipo função por isso criei esta ER*/
+tipofunc: ID  { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "FUNCAO"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, "");}
+;
+
+/* para fazer isso teria que avançar o yytext*/
 listDeclVar: identificador MINUS datatype listDeclVarVirg
 |  
 ;
@@ -221,7 +235,7 @@ listDeclVarVirg: ',' listDeclVar
 |
 ;
 
-listValue: value listValueVirg
+listValue: value listValueVirg {TypeIsCorrect($<ident>1, $<ident>1);}
 |  
 ;
 

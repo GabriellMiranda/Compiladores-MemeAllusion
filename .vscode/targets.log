@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 23 16:26:53 2022
+# Make data base, printed on Fri Jul 29 11:53:21 2022
 
 # Variables
 
@@ -89,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 42808
+VSCODE_PID = 66912
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -97,7 +97,7 @@ XDG_SESSION_TYPE = x11
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/1879,unix/gabriel:/tmp/.ICE-unix/1879
+SESSION_MANAGER = local/gabriel:@/tmp/.ICE-unix/2233,unix/gabriel:/tmp/.ICE-unix/2233
 # automatic
 *F = $(notdir $*)
 # environment
@@ -107,7 +107,6 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
- 
 VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"dc7ba51c4efcfec965eaa07de065afd6.pt-br","_translationsConfigFile":"/home/gabriel/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/tcf.json","_cacheRoot":"/home/gabriel/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br","_resolvedLanguagePackCoreLocation":"/home/gabriel/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/gabriel/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
@@ -142,7 +141,7 @@ SNAP_USER_COMMON = /home/gabriel/snap/code/common
 # environment
 SNAP = /snap/code/102
 # environment
-INVOCATION_ID = 97aa9511f4c9486c8ac24203a9659e05
+INVOCATION_ID = bbc7fb05e3ef448590194979286b4158
 # environment
 SNAP_REVISION = 102
 # environment
@@ -174,7 +173,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1932
+SYSTEMD_EXEC_PID = 2269
 # environment
 DISPLAY = :1
 # environment
@@ -190,9 +189,9 @@ SNAP_DATA = /var/snap/code/102
 # environment
 SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
-MANAGERPID = 1570
+MANAGERPID = 1922
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 42758
+GIO_LAUNCHED_DESKTOP_FILE_PID = 66862
 # environment
 _ = /snap/code/102/usr/share/code/code
 # environment
@@ -202,7 +201,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/gabriel/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:29570
+JOURNAL_STREAM = 8:36415
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -252,9 +251,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 6162423): 27 files, no impossibilities.
+# . (device 66308, inode 6162423): 28 files, no impossibilities.
 
-# 27 files, no impossibilities in 1 directories.
+# 28 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -296,6 +295,7 @@ all:
 # automatic
 # < := 
 # automatic
+ 
 # + := 
 # automatic
 # % := 
@@ -340,12 +340,12 @@ instalarLex:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 35 / storage = 356 B / avg = 10 B
-# current buf: size = 8162 B / used = 356 B / count = 35 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 384 B / avg = 10 B
+# current buf: size = 8162 B / used = 384 B / count = 36 / avg = 10 B
 
-# strcache performance: lookups = 45 / hit rate = 22%
+# strcache performance: lookups = 46 / hit rate = 21%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=0/45=0%
-# Finished Make data base on Sat Jul 23 16:26:53 2022
+# Load=36/8192=0%, Rehash=0, Collisions=0/46=0%
+# Finished Make data base on Fri Jul 29 11:53:21 2022
 
  
