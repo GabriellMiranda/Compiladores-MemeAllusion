@@ -1,0 +1,17 @@
+celokocachoeira:
+natashacaldeirao valor1|
+natashacaldeirao i |
+cazemito sapiens |
+natashacaldeirao soma1|
+natashacaldeirao a|
+natashacaldeirao b|
+
+
+querocafeee:
+
+
+allude :               
+   valor1 receba 1 * 3 + 5
+   seligaein.memear<"valor:",valor1>
+   
+:)

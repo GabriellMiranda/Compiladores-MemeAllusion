@@ -1,12 +1,17 @@
 %{
-    #include "ArvoreP.c"
-    #include "ArvoreP.h"
-    #include "translate2.tab.h"
+    #include "Patricia/ArvoreP.c"
+    #include "Patricia/ArvoreP.h"
+    #include "y.tab.h"
     #include <stdio.h>
     #include <string.h>
     #include <stdlib.h>
     #include <ctype.h>
-
+    #include "codigoIntermediario/codigoIntermediario.h"
+    #include "codigoIntermediario/codigoIntermediario.c"
+    #include "Tree.c"
+    #include "Tree.h"
+    No *abstrata;
+    Lista lista;
     extern char *yytext;
     void yyerror(char *s);
     extern int yylineno; /* Variável responsável por armazenar a linha atual do arquivo fonte */
@@ -195,16 +200,14 @@ relop: OR {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "LOGICO");}
 
 
 
-expression: value aritmetica expression {TypeIsCorrect($<ident>1,  $<ident>3);}
-| value
+expression: value PLUS expression {TypeIsCorrect($<ident>1,  $<ident>3);insereLista(&lista,"+", 1);insereLista(&lista,$<ident>1, 0);insertNo(&abstrata,"+");insertNo(&abstrata,$<ident>1); }
+| value MINUS expression {TypeIsCorrect($<ident>1,  $<ident>3);insereLista(&lista,"-", 1);insereLista(&lista,$<ident>1, 0);  insertNo(&abstrata,"-");insertNo(&abstrata,$<ident>1);}                                              
+| value MULT expression {TypeIsCorrect($<ident>1,  $<ident>3);insereLista(&lista,"*", 1);insereLista(&lista,$<ident>1, 0); insertNo(&abstrata,"*");insertNo(&abstrata,$<ident>1); }
+| value DIV expression {TypeIsCorrect($<ident>1,  $<ident>3);insereLista(&lista,"/", 1);insereLista(&lista,$<ident>1, 0); insertNo(&abstrata,"/");insertNo(&abstrata,$<ident>1); }
+| value EXP expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+| value { insertNo(&abstrata,$<ident>1);percorrerLista(&lista);iniciaLista(&lista);insereLista(&lista,$<ident>1, 0);}
 ;
 
-aritmetica: PLUS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-| MINUS {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-| MULT {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-| DIV {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-| EXP {adcSimb(&tabela, "OPERADOR", yytext, yylineno, "ARITIMETICO");}
-;
 
 
 
@@ -278,12 +281,21 @@ void yyerror(char *s) {
 }
 
 int main(void){
+    initNo(&abstrata);
+    FILE *arquivo;
+    arquivo = fopen("tresEndereco.txt","w");
+    fprintf(arquivo,"%s","");
+    fclose(arquivo);
     iniciaArvore(&tabela);
+    iniciaLista(&lista);
     printf("%d\t", yylineno);
     yyparse();
     if(qtdErros == 0){
         printf("\n\nPrograma Sintaticamente Correto\n");
         imprimirTab(tabela);
+        imprimeTree(abstrata);
+        printf("\n%d", calculo(abstrata));
+        percorrerLista(&lista);
     }
     return 0;
 }

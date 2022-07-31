@@ -173,7 +173,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 49 "translate.y"
+#line 54 "translate.y"
 
     char *ident;
 

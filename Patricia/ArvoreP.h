@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "TabelaDeSimbolos.h"
-#include "TabelaDeSimbolos.c"
+#include "../TabelaSimbolos/TabelaDeSimbolos.h"
+#include "../TabelaSimbolos/TabelaDeSimbolos.c"
 
 
 typedef enum{

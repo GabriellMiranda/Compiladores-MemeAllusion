@@ -679,7 +679,7 @@ char *yytext;
 #line 2 "lex.l"
   #include <stdio.h>
   #include <string.h>
-  #include "translate2.tab.h"
+  #include "y.tab.h"
   void yyerror_lex(char *s);
 
 #line 686 "lex.yy.c"
