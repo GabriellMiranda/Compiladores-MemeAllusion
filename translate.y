@@ -30,16 +30,16 @@
     	buscar(var1,tabela,tipo1);
     	buscar(var2,tabela,tipo2);
     	if(strcmp(tipo1,"") == 0){
-    	    printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var1);
+    	    printf("\nErro semântico próximo a linha %d, termo '%s' não foi declarado\n",yylineno,var1);
             exit(0);
     	}
     	else if(strcmp(tipo2,"") == 0){
-            printf("\nErro semântico na linha %d, termo '%s' não foi declarado\n",yylineno,var2);
+            printf("\nErro semântico próximo a linha %d, termo '%s' não foi declarado\n",yylineno,var2);
             exit(0);
         }
         else{
             if(strcmp(tipo1,tipo2) != 0){
-                printf("\nErro semântico na linha %d, Os tipos dos termos '%s' e '%s' são incompatíveis\n",yylineno-1,var1,var2);
+                printf("\nErro semântico próximo a linha %d, Os tipos dos termos '%s' e '%s' são incompatíveis\n",yylineno-1,var1,var2);
                 exit(0);
             }
         }
@@ -121,18 +121,20 @@ body: for ':' body FIMDECLARACOES body
 | SCANF'.'RUN '<' STR listValueVirg '>' body
 | printf body
 | BREAK body
-| statement body
+| statement body 
 | identificador ATRIBUICAO value FIMEXPRESSAO body {TypeIsCorrect($<ident>1,  $<ident>3);}
 | switch case body
 | DO ':' body FIMDECLARACOES while ':' body FIMDECLARACOES body
 |
 ;
 
-statement: identificador ATRIBUICAO expression {TypeIsCorrect($<ident>1,  $<ident>3);}
+statement: identificador ATRIBUICAO expression {TypeIsCorrect($<ident>1,  $<ident>2);}
 | identificador ATRIBUICAO funcao {TypeIsCorrect($<ident>1,  $<ident>3);}
 | identificador ATRIBUICAO value relop value {TypeIsCorrect($<ident>1,  $<ident>3); TypeIsCorrect($<ident>3,  $<ident>5); }
 | funcao 
 ;
+
+
 
 switch: SWITCH '<' value '>' ':';
 
@@ -223,7 +225,7 @@ declararFun: '<'datatype'>' tipofunc '<'listDeclVar'>' ':' body return declararF
 ;
 
 /* aqui ele vai receber o tipo função por isso criei esta ER*/
-tipofunc: ID  { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "FUNCAO"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, "");}
+tipofunc: ID  { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "FUNCAO"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, ""); TypeIsCorrect($<ident>1,  $<ident>1);}
 ;
 
 /* para fazer isso teria que avançar o yytext*/
@@ -263,7 +265,7 @@ datatype: INT {strcpy(tipo, "INT");}
 | STRUCT {strcpy(tipo,"STRUCT");} 
 ;
 
-identificador: ID { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, "");}
+identificador: ID { $<ident>$ = strdup($<ident>1); strcpy(tipoSimbolo, "VARIAVEL"); adcSimb(&tabela, tipo, $<ident>1, yylineno, tipoSimbolo);strcpy(tipo, ""); TypeIsCorrect($<ident>1,  $<ident>1);}
 ;
 
 %%

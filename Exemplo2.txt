@@ -1,12 +1,17 @@
 celokocachoeira:
-cazemito numero|
+natashacaldeirao numero|
 cazemito valor|
-cazemito soma|
+natashacaldeirao soma|
 cazemito media|
 natashacaldeirao cont|
+natashacaldeirao a|
+natashacaldeirao b|
 
-querocafeee: 
 
+querocafeee:
+   <natashacaldeirao> somar<a - natashacaldeirao, b - natashacaldeirao>:
+   soma receba a + b
+   acertoumizeravi soma
 
 allude:
     soma receba 0
@@ -15,11 +20,11 @@ allude:
     uaiso <opaitaon>:
         soprusmenino.memear<"%d",numero>
         soma receba soma+numero
-        cont receba cont+1
+        cont receba cont + 1
         masoqueeisso<cont dorime 10>:
             parecomisso
         <-
     <-
-    media receba soma/cont
+    media receba soma/10
     seligaein.memear<"%f",media>
 :)

@@ -13,9 +13,11 @@ querocafeee:
    acertoumizeravi soma
 
 allude :
+   valor1 receba valor1 + sapiens                
    paraze <i receba 0 ; i mopaz 10 ; i receba i + 1 > :
       valor1 receba valor1+i 
    <-
-   somar.memear<valor1, valor1> 
-   seligaein.memear<"valor:",valor1>
+   somar.memear<valor1, valor2> 
+   seligaein.memear<"valor:",valor2>
+   
 :)

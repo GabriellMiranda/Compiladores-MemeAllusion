@@ -1,16 +1,17 @@
 celokocachoeira:
-wanessa menor -> 1 <- |
-wanessa maior->2<- |
-wanessa media->3<- |
-wanessa altura->4<- |
-natashacaldeirao qtd->i<- |
+cazemito  i|
+cazemito menor -> 1 <- |
+cazemito maior->2<- |
+cazemito media->3<- |
+cazemito altura->4<- |
+cazemito  qtd->i<- |
 
 querocafeee: 
 
 allude:
 
     soprusmenino.memear<"%d",altura>
-    masoqueeisso<i dorime 0>:
+    masoqueeisso<i dorime 0.0>:
         menor receba altura
         maior receba altura
     <-
