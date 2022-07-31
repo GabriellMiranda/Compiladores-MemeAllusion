@@ -78,8 +78,8 @@
     #include <ctype.h>
     #include "codigoIntermediario/codigoIntermediario.h"
     #include "codigoIntermediario/codigoIntermediario.c"
-    #include "Tree.c"
-    #include "Tree.h"
+    #include "ArvoreBinaria/Tree.c"
+    #include "ArvoreBinaria/Tree.h"
     No *abstrata;
     Lista lista;
     extern char *yytext;
