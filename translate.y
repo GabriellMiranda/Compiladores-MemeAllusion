@@ -281,7 +281,7 @@ void yyerror(char *s) {
 }
 
 int main(void){
-    initNo(&abstrata);
+   // initNo(&abstrata);
     FILE *arquivo;
     arquivo = fopen("tresEndereco.txt","w");
     fprintf(arquivo,"%s","");
@@ -293,8 +293,8 @@ int main(void){
     if(qtdErros == 0){
         printf("\n\nPrograma Sintaticamente Correto\n");
         imprimirTab(tabela);
-        imprimeTree(abstrata);
-        printf("\n%d", calculo(abstrata));
+        //imprimeTree(abstrata);
+        //printf("\n%d", calculo(abstrata));
         percorrerLista(&lista);
     }
     return 0;

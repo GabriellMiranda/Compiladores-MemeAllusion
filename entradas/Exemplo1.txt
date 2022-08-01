@@ -1,17 +1,23 @@
 celokocachoeira:
 natashacaldeirao valor1|
+natashacaldeirao valor2|
 natashacaldeirao i |
 cazemito sapiens |
-natashacaldeirao soma1|
+natashacaldeirao soma|
 natashacaldeirao a|
 natashacaldeirao b|
 
 
 querocafeee:
+  <natashacaldeirao> somar < a - natashacaldeirao,  b - natashacaldeirao>:
+      soma receba a + b
+      acertoumizeravi soma
 
 
-allude :               
-   valor1 receba 1 * 3 + 5
-   seligaein.memear<"valor:",valor1>
+allude :    
+   valor1 receba 8 + 3 * 5 
+   valor2 receba -4 + 9 + 3 * 2           
+   soma receba somar.memear<valor1, valor2>
+   seligaein.memear<"valor:",soma>
    
 :)

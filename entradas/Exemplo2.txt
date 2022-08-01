@@ -28,3 +28,4 @@ allude:
     media receba soma/10
     seligaein.memear<"%f",media>
 :)
+

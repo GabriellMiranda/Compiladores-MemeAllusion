@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 31 20:47:23 2022
+# Make data base, printed on Mon Aug  1 09:49:36 2022
 
 # Variables
 
@@ -39,7 +39,6 @@ GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
- 
 .VARIABLES := 
 # environment
 PWD = /home/gabriel/Documentos/Compiladores/Compiladores-Tp1
@@ -90,7 +89,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 127906
+VSCODE_PID = 168643
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -192,7 +191,7 @@ SNAP_CONTEXT = ZcH4lQnqU8B8GHcplKu-a-fEISCfAioH_V4wCMTLcpBKT3IyWWum
 # environment
 MANAGERPID = 1635
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 127857
+GIO_LAUNCHED_DESKTOP_FILE_PID = 168591
 # environment
 _ = /snap/code/102/usr/share/code/code
 # environment
@@ -252,9 +251,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66308, inode 6162423): 21 files, no impossibilities.
+# . (device 66308, inode 6162423): 20 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -265,11 +264,10 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-31 20:47:22.146497657
+#  Last modified 2022-07-31 20:47:47.426651385
 #  File has been updated.
 #  Successfully updated.
 
- 
 instalarYacc:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -300,6 +298,7 @@ all:
 # + := 
 # automatic
 # % := 
+ 
 # automatic
 # ^ := 
 # automatic
@@ -311,7 +310,7 @@ all:
 #  recipe to execute (from 'Makefile', line 2):
 	flex lex.l
 	yacc -d translate.y
-	gcc -o a.out lex.yy.c translate/y.tab.c
+	gcc -o a.out lex.yy.c y.tab.c
 
 run:
 #  Implicit rule search has not been done.
@@ -341,12 +340,12 @@ instalarLex:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 281 B / avg = 9 B
-# current buf: size = 8162 B / used = 281 B / count = 29 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 271 B / avg = 9 B
+# current buf: size = 8162 B / used = 271 B / count = 28 / avg = 9 B
 
-# strcache performance: lookups = 39 / hit rate = 25%
+# strcache performance: lookups = 38 / hit rate = 26%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=0/39=0%
-# Finished Make data base on Sun Jul 31 20:47:23 2022
+# Load=28/8192=0%, Rehash=0, Collisions=0/38=0%
+# Finished Make data base on Mon Aug  1 09:49:36 2022
 
  

@@ -42,12 +42,16 @@ void insertNo(No **no,char* op){// depende da ordem com as quais as operações 
 
 void imprimeTree(No *no){
     if(no == NULL){
-        printf("\nÁrvore vazia :(\n");
+       // printf("\nÁrvore vazia :(\n");
     }
     else{
         if(no->Esq != NULL)
             imprimeTree(no->Esq);
-        printf("%s ",no->caracter);
+        FILE *arquivo;
+        arquivo = fopen("arvoreAbstrata.txt", "a");
+        fprintf(arquivo,"%s\n", no->caracter);
+        fclose(arquivo);
+        //printf("%s ",no->caracter);
         if(no->Dir != NULL) {
             imprimeTree(no->Dir);
         }
@@ -70,7 +74,7 @@ int notNumber(char *caractere){
 int calculo(No *no){
     int valor = calcular(no);
     if(valor <= 0){
-        printf("\nNão é possivel calcular!\n");
+        //printf("\nNão é possivel calcular!\n");
         return 0;
     }
     else{
@@ -80,7 +84,7 @@ int calculo(No *no){
 int calcular(No *no){
     int valor,valorEsq,valorDir;
     if(no == NULL){
-        printf("\nÁrvore vazia :(\n");
+       // printf("\nÁrvore vazia :(\n");
         return 0;
     }
     else{
